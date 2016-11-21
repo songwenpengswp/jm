@@ -11,21 +11,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
 <title>关于</title>
 
-<style type="text/css">
 
-<!--
-body{ padding:0;font:12px "宋体"; }
-#lib_Tab1_sx{margin:0px;padding:0px;margin-bottom:15px; overflow:hidden;}
-/* .lib_tabborder_sx{border:1px solid #95C9E1;} */
-.lib_Menubox_sx { background:#fff; line-height:48px;position:relative; float:left; width:130px; height:240px;}
-.lib_Menubox_sx ul{margin:0px;padding:0px;list-style:none; position:absolute; top:15px; left:5px; margin-left:10px; height:25px;text-align:center;}
-.lib_Menubox_sx li{display:block;cursor:pointer;width:134px;color:#000000;font-weight:bold; height:45px;line-height:25px; background-color:#F5F5F5}
-.lib_Menubox_sx li.hover{padding:0px;background:#33cc99;width:136px;border:1px solid #95C9E1; border-right:0;
-color:#fff;height:45px;line-height:25px;}
-.lib_Contentbox_sx{margin-top:0px; border-top:none;padding:20px; border-left:0; margin-left:300px;margin-right:200px;}
--->
-</style>
 
+<link rel="stylesheet" type="text/css" href="/jmApp/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/jmApp/bootstrap-3.3.5-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/jmApp/bootstrap-3.3.5-dist/css/buttons.css">
 	<link rel="stylesheet" href="/jmApp/circle_progress/css/progress.css">
@@ -35,18 +23,54 @@ color:#fff;height:45px;line-height:25px;}
     <script src="/jmApp/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
     
     <link rel="stylesheet" type="text/css" href="/jmApp/css/bootstrap.css">
-    
-    <style type="text/css">
-	.cjwt{line-height:24px;}
-	.cjwt .cjwt-group{border-bottom:1px dashed #ccc;padding:10px 0;font-size:14px;margin-left: 30px;margin-top: 30px;}
-	.cjwt .cjwt-title{font-size:18px;font-weight:bold;cursor:pointer;}
-	.cjwt .cjwt-subtitle{font-size:14px;color:#F25904;}
-	.cjwt .cjwt-group dd{padding:10px 0;}
-	</style>
-	<style type="text/css">
-		.aqbz{text-align: left; font-size: 16px; line-height: 24px;}
-		.aqbz h2{font-size: 18px;line-height:2;}
-	</style>
+  
+<style type="text/css">
+
+<!--
+body{ font-family: "Microsoft YaHei";
+background-color:#F5F5F5;
+color: #333;}
+/* #lib_Tab1_sx{margin:0px;padding:0px;margin-bottom:15px; overflow:hidden;} */
+#container{
+	width:980px;
+	height:auto;
+	background:#333;
+	margin:0 auto;
+	}
+/* .lib_tabborder_sx{border:1px solid #95C9E1;} */
+.lib_Menubox_sx { width:180px;
+	height: 200px;
+	float:left;
+	background:#fff;
+
+	}
+ .lib_Menubox_sx ul{width:180px;
+	height:50px;
+	background-color:#fff;
+	text-align:center;
+	line-height:50px;
+	font-size:14px;
+	padding-left:0px;
+}
+.lib_Menubox_sx li{width:180px;
+
+	height:50px;
+	color:#333;
+	display:block;}
+.lib_Menubox_sx li.hover{
+
+color:#fff;
+background-color:#02c18b; } 
+.lib_Contentbox_sx{width:800px;
+	height:auto;
+	background-color:#FFF;
+	float:left;
+	margin-left:100px;
+	border: solid 1px #eaeaea;
+	margin-bottom:60px;}
+-->
+</style>
+
 </head>
 <script>
 <!--
