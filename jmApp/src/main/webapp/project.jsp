@@ -88,7 +88,7 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div
-		style="background: url(/jmApp/img/top.jpg) no-repeat top center ;height: 360px;width: 100%">
+		style=" background: url(/jmApp/img/top2.jpg) no-repeat top center ;margin-top: 50px;height: 360px;width: 100%">
 	</div>
 	<div style="background: #f5f5f5">
 		<div class="container">

@@ -57,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </div> 
     </nav> -->
     <jsp:include page="header.jsp"></jsp:include>
-    <div  style="background: url(img/projectdelivery.jpg) no-repeat top center ;height: 100px;width: 100%;margin-top: 50px;">
+    <div  style="margin-top: 50px;">
     </div>
      <div style="background: #f5f5f5;overflow: hidden">
        <div  style="background: white;overflow: hidden;margin: 50px 100px 10px 100px">
