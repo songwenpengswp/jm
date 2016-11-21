@@ -356,13 +356,13 @@
 						<div class="line-blue"></div>
 						<div class="media" style="margin: 10px;margin-top: 20px;">
 							<div class="media-left">
-								<a href="www.jzmys.net"> <img class="media-object img-circle"
-									src="/jmApp/jm/project/${project.deliver.logo}"
+								<a href="//www.jzmys.net"> <img class="media-object img-circle"
+									src="/jmApp/project/${project.deliver.logo}"
 									style="height: 60px;width: 60px;">
 								</a>
 							</div>
 							<div class="media-body">
-								<a href="www.jzmys.net">
+								<a href="//www.jzmys.net">
 									<h4 class="media-heading"
 										style="font-weight:bold;color:#FF7300;">${project.deliver.name}</h4>
 								</a>
