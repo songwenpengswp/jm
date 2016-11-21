@@ -10,6 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=gb2312" />
 <title>关于</title>
+
 <style type="text/css">
 
 <!--
@@ -32,6 +33,9 @@ color:#fff;height:45px;line-height:25px;}
 	<link rel="stylesheet" href="/jmApp/datepicker/css/bootstrap-datepicker3.css">
 	<script src="/jmApp/bootstrap-3.3.5-dist/js/jquery.min.js"></script>
     <script src="/jmApp/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="/jmApp/css/bootstrap.css">
+    
     <style type="text/css">
 	.cjwt{line-height:24px;}
 	.cjwt .cjwt-group{border-bottom:1px dashed #ccc;padding:10px 0;font-size:14px;margin-left: 30px;margin-top: 30px;}
