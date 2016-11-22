@@ -192,14 +192,14 @@
 			<div class="row">
 				<c:forEach items="${proEndList}" var="project">
 					<div class="col-md-4">
-						<div class="thumbnail course-list-img">
+						<div class="thumbnail "><!-- course-list-img -->
 							<a href="/jmApp/jm/DetailAction.action?proId=${project.id}"><img class="img_3"
 								src="/jmApp/project/${project.picture}"></a>
 							<div class="caption text-center">
 								<h3>
 									<b>${project.title}</b>
 								</h3>
-								<h4>以募资金：${project.investSum/10000}万 |
+	<!-- project.investSum/10000 -->	<h4>以募资金：￥${project.investSum==null?0:project.investSum/10000}万 |
 									以募支持者：${project.prorders.size()}人</h4>
 							</div>
 						</div>

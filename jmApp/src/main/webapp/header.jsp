@@ -5,7 +5,7 @@
      <div class="container">
 		<div class="navbar-header"
 			style="margin-top: 0px;margin-bottom: 10px">
-			<a class="navbar-brand" href="#" style="padding-top: 0"> <img
+			<a class="navbar-brand" href="/jmApp/jm/MainAction.action" style="padding-top: 0"> <img
 				src="/jmApp/img/91_logo.png">
 			</a>
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -37,8 +37,12 @@
 							<c:when test="${user==null}">
 								<a href="/jmApp/login.jsp" class="btn btn-warning" role="button">登陆</a>
 							</c:when>
-							<c:otherwise>
+							<%-- <c:when test="${user!=null&&user.tel!=null&&user.name==null}">
 								<a href="/jmApp/jm/UserAction.action" class="btn btn-warning" role="button">你好,${user.tel}</a>
+							</c:when> --%>
+							
+							<c:otherwise>
+								<a href="/jmApp/jm/UserAction.action" class="btn btn-warning" role="button">你好 ${user.name}</a>
 							</c:otherwise>
 						</c:choose>
 					</div>

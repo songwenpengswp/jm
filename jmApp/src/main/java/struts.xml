@@ -40,7 +40,7 @@
         </action>
         <action name="UserAction" class="UserAction">
             <result name="error" type="redirectAction">MainAction</result>
-            <result name="success">/user.jsp</result>
+            <result name="success">/user.jsp?</result>
         </action>
         <action name="FileUpload" class="UserAction" method="uploadImage">
             <result type="json">  
@@ -50,7 +50,9 @@
         </action>
         <action name="SaveInfo" class="UserAction" method="saveInfo">
             <result type="json">  
-                 <param name="excludeNullProperties">true</param>  
+                 <param name="excludeNullProperties">true</param>
+                  <param name="success">/login.jsp</param>
+				
               </result>
         </action>
         <action name="SaveAddess" class="UserAction" method="saveAddress">

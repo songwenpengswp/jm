@@ -114,7 +114,7 @@ public class UserAction extends ActionSupport {
 		session.put("user", user);
 		return SUCCESS;
     }
-	
+    
 	public UserService getUserService() {
 		return userService;
 	}

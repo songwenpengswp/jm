@@ -97,11 +97,19 @@
 				<div id="type-group" class="btn-group" role="group" aria-label="...">
 					<a role="button"
 						class="btn btn-default ${(param.type==null || param.type.length()==0)?'btn-info':'' }"
-						href="/jmApp/jm/ProjectAction.action">全部</a> <a role="button"
+						href="/jmApp/jm/ProjectAction.action">电影电视剧</a> <a role="button"
 						class="btn btn-default ${(param.type!=null && param.type.length()>0 && param.type.equals('0'))?'btn-info':''}"
-						href="/jmApp/jm/ProjectAction.action?type=0">影视娱乐</a> <a role="button"
+						href="/jmApp/jm/ProjectAction.action?type=0">演艺文化</a> <a role="button"
 						class="btn btn-default ${(param.type!=null && param.type.length()>0 && param.type.equals('1'))?'btn-info':''}"
-						" href="/jmApp/jm/ProjectAction.action?type=1">泛文化</a>
+						" href="/jmApp/jm/ProjectAction.action?type=1">主题民宿空间</a> <a role="button"
+						class="btn btn-default ${(param.type!=null && param.type.length()>0 && param.type.equals('2'))?'btn-info':''}"
+						" href="/jmApp/jm/ProjectAction.action?type=2">主题餐饮商铺</a> <a role="button"
+						class="btn btn-default ${(param.type!=null && param.type.length()>0 && param.type.equals('3'))?'btn-info':''}"
+						" href="/jmApp/jm/ProjectAction.action?type=3">旅游</a> <a role="button"
+						class="btn btn-default ${(param.type!=null && param.type.length()>0 && param.type.equals('4'))?'btn-info':''}"
+						" href="/jmApp/jm/ProjectAction.action?type=4">图书出版</a> <a role="button"
+						class="btn btn-default ${(param.type!=null && param.type.length()>0 && param.type.equals('5'))?'btn-info':''}"
+						" href="/jmApp/jm/ProjectAction.action?type=5">其他</a>
 				</div>
 			</div>
 			<div style="height: 40px;margin-top: 10px">
@@ -125,7 +133,7 @@
 		<div class="row" style="margin-left: 50px;margin-top: 20px">
 			<c:forEach items="${proList}" var="project">
 				<div class="col-sm-6 col-md-4">
-					<div class="thumbnail  course-list-img">
+					<div class="thumbnail  ">
 						<a href="/jmApp/jm/DetailAction.action?proId=${project.id}"><img class="img_3"
 							src="/jmApp/project/${project.picture}"></a>
 						<div class="caption">
