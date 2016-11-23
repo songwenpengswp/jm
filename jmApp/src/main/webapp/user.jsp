@@ -621,32 +621,33 @@
 
 										<div class="row">
 											<div class="col-md-2">
-												<div class="thumbnail">
-													<c:choose>
-														<c:when test="${user.picture==null }">
-															<img id="user_img" src="/jmApp/img/pic.png">
-														</c:when>
-														<c:otherwise>
-															<img id="user_img" src="${user.picture}">
-														</c:otherwise>
-													</c:choose>
-
-													<div class="caption" style="text-align: center;">
-														<p>
-															<input type="file" id="image" name="image"
-																style="display:none" onChange="upload()" />
-															<button id="upload_btn" class="btn btn-default">上传照片</button>
-														</p>
+									
+													<div class="thumbnail">
+													  <c:choose>
+													     <c:when test="${user.picture==null }">
+													         <img id="user_img" src="/jmApp/img/pic.png">
+													     </c:when>
+													     <c:otherwise>
+													         <img id="user_img" src="${user.picture}">
+													     </c:otherwise>
+													  </c:choose>
+															<form action="/jmApp/jm/FileUpload.action">
+														<div class="caption" style="text-align: center;">
+															<p>
+																<input type="file" id="image" name="image"
+																	style="display:none" onChange="upload()"/>
+																<button id="upload_btn" class="btn btn-default">上传照片</button>
+															</p>
+														</div></form>
 													</div>
+													
 												</div>
-											</div>
 											<div class="col-md-5" style="text-align: center;">
-												<form id="myForm" class="form-horizontal">
+												  <form id="info_frm" class="form-horizontal">
 													<div class="form-group">
-														<label for="name" class="col-sm-3 control-label">昵称：</label>
+														<label for="name" class="col-sm-3 control-label">别名：</label>
 														<div class="col-sm-7">
-															<input name="name" type="text" class="form-control"
-																id="name" value="${user.name}">
+															<input name="name" type="text" class="form-control" id="name" value="${user.name}">
 														</div>
 													</div>
 													<div class="form-group">
@@ -659,25 +660,21 @@
 													<div class="form-group">
 														<label for="sex" class="col-sm-3 control-label">性别：</label>
 														<div class="col-sm-7" id="sex">
-
+														   
 															<label class="radio-inline"> <input type="radio"
-																name="sex" id="msex" value="1" checked> 男
+																name="sex" id="msex"
+																value="1" checked> 男
 															</label> <label class="radio-inline"> <input type="radio"
-																name="sex" id="fsex" value="0"> 女
+																name="sex" id="fsex"
+																value="0"> 女
 															</label>
 														</div>
-													</div>                                                       
-                                                      <button id="info_btn" class="btn btn-warning" type="button" onclick="formSubmit()" value="Submit">保存</button>
-<script type="text/javascript">
-function formSubmit(){
-    if(confirm('请重新登录,完成修改')){
-        document.getElementById("myForm").submit();      
-    }
-}
-</script>
-												</form>
-
-											</div>
+													</div>
+													<button id="info_btn" type="submit"   class="btn btn-warning"
+													 onclick="function a(){document.getElementById('info_frm').submit();}setTimeout(a,3000);">保存更新</button>
+													
+												 </form>
+												</div>
 										</div>
 
 									</div>
@@ -736,7 +733,8 @@ function formSubmit(){
 											</div>
 											<div class="col-sm-6" style="text-align: center;">
 												<button id="address_btn" type="button"
-													class="btn btn-warning">保存更新</button>
+													class="btn btn-warning"
+												>保存更新</button>
 											</div>
 										</form>
 									</div>

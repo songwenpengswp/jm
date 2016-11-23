@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.jm.app.bean.Project;
+
 import com.jm.app.service.ProjectService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -22,6 +23,8 @@ public class ProjectAction extends ActionSupport {
 	
 	private List<Project> proList; //查询项目结果
 	
+	
+	
 	@Override
 	public String execute() throws Exception {
 
@@ -29,7 +32,7 @@ public class ProjectAction extends ActionSupport {
 		request=(Map) context.get("request");
         proList=proService.getProByType(type, status);
         request.put("proList", proList);
-		return super.execute();
+        		return super.execute();
 	} 
 
 	public ProjectService getProService() {

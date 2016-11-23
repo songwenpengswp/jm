@@ -84,25 +84,7 @@
 		});
 	});
 </script>
-<script type="text/javascript">
-    function getRTime(){
-        var EndTime= new Date('2013/05/1 10:00:00'); //截止时间 前端路上 http://www.51xuediannao.com/qd63/
-        var NowTime = new Date();
-        var t =EndTime.getTime() - NowTime.getTime();
-        
 
-        var d=Math.floor(t/1000/60/60/24);
-        var h=Math.floor(t/1000/60/60%24);
-        var m=Math.floor(t/1000/60%60);
-        var s=Math.floor(t/1000%60);
-
-        document.getElementById("t_d").innerHTML = d + "天";
-        document.getElementById("t_h").innerHTML = h + "时";
-        document.getElementById("t_m").innerHTML = m + "分";
-        document.getElementById("t_s").innerHTML = s + "秒";
-    }
-    setInterval(getRTime,1000);
-    </script>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div style="background: #f5f5f5">
@@ -133,7 +115,7 @@
 
 						<div class="investDetailInfo">
 							<span style="font-size:20px;font-weight:normal;color:#666;">已募集:</span>
-							<p style="font-size:36px;color:#FF7300;line-height:60px;">￥${project.investSum}元</p>
+							<p style="font-size:36px;color:#FF7300;line-height:60px;">￥${project2.investSum==null?0:project2.investSum}元</p>
 						</div>
 						<div class="progress"
 							style="margin-top: 10px;width: 96%;height: 15px">
@@ -146,20 +128,15 @@
 								<span>${project.investRate}%</span>
 							</div>
 						</div>
-						<div c id="CountMsg" class="HotDate">
-							<p  class="text-muted" style="font-size:15px;">
+						<div class="timer">
+							<p class="text-muted" style="font-size:15px;">
 								距离众筹结束还有: <span><em><font color="#f17a00"> <span
-										id="t_d"	class="days"></span>00天 <span id="t_h" class="hours"></span>00时 <span
-											id="t_m" class="minutes"></span>00分 <span id="t_s" class="seconds"></span>00秒
+											class="days"></span> 天 <span class="hours"></span> 小时 <span
+											class="minutes"></span> 分 <span class="seconds"></span> 秒
 									</font></em></span>
 							</p>
 						</div>
-						<%-- <DIV id="CountMsg" class="HotDate">
-                        <span id="t_d">00天</span>
-                        <span id="t_h">00时</span>
-                        <span id="t_m">00分</span>
-                        <span id="t_s">00秒</span>
-                        </DIV> --%>
+						
 
 						
 						<div class="investDetailSupport">
@@ -207,23 +184,28 @@
 							</div>
 						<div role="tabpanel" class="tab-pane" id="messages">
 							<div class="row" style="padding-top: 20px;">
+								<c:forEach items="${prorder}" var="pror">
 								<div class="col-md-6" style="padding-left: 35px;">
+							
 									<div class="media" style="padding: 20px;background: #f5f5f5;">
+										
+									
 										<div class="media-left">
 											<img class="media-object img-circle"
 												src="/jmApp/img/default.jpg">
 										</div>
 										<div class="media-body">
 											<h3 class="media-heading" style="padding-left: 20px;">
-												<b>Lily</b>
+												<b>${pror.user.name}</b>
 											</h3>
 											<h5 style="padding-top: 10px;padding-left: 20px;">
-												投资金额：<font color="#f17a00">￥50,000</font>
+												投资金额：<font color="#f17a00">${pror.investment}</font>
 											</h5>
-											<h5 style="padding-left: 20px;">投资时间：2016-05-26</h5>
+											<h5 style="padding-left: 20px;">投资时间：${pror.buyDate}</h5>
 										</div>
 									</div>
-								</div>
+								</div></c:forEach>
+								
 								<!-- <div class="col-md-6" style="padding-right: 35px;">
 									<div class="media" style="padding: 20px;background: #f5f5f5;">
 										<div class="media-left">
