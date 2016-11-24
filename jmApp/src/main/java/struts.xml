@@ -72,5 +72,8 @@
 		 <action name="Aup" class="UpAction" >
 			<result name="val_success" >/password2.jsp</result>
 		</action>
+		<action name="outAction" class="com.jm.app.action.OutAction" >
+			<result type="redirectAction">MainAction</result>
+		</action>
     </package>
 </struts>
