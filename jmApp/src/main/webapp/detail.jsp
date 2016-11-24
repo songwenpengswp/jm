@@ -84,6 +84,7 @@
 		});
 	});
 </script>
+
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div style="background: #f5f5f5">
@@ -114,7 +115,7 @@
 
 						<div class="investDetailInfo">
 							<span style="font-size:20px;font-weight:normal;color:#666;">已募集:</span>
-							<p style="font-size:36px;color:#FF7300;line-height:60px;">￥${project.investSum==null?0:project.investSum}元</p>
+							<p style="font-size:36px;color:#FF7300;line-height:60px;">￥${project2.investSum==null?0:project2.investSum}元</p>
 						</div>
 						<div class="progress"
 							style="margin-top: 10px;width: 96%;height: 15px">
@@ -135,11 +136,14 @@
 									</font></em></span>
 							</p>
 						</div>
+						
+
+						
 						<div class="investDetailSupport">
 							<ul>
 								<li><img src="/jmApp/img/support.png" alt="支持"> (支持)
-									<span>45</span> 人</li>
-								<li><img src="/jmApp/img/circle.png" alt="支持"> (围观) <span>375</span>
+									<span>${project.prorders.size()}</span> 人</li>
+								<li><img src="/jmApp/img/circle.png" alt="支持"> (围观) <span>${project.onlookers}</span>
 									人</li>
 							</ul>
 						</div>
@@ -159,13 +163,13 @@
 							style="font-size: 17px">项目主页</a></li>
 						<li role="presentation"><a href="#profile"
 							aria-controls="profile" role="tab" data-toggle="tab"
-							style="font-size: 17px" onclick="iFrameHeight2()">安全保障</a></li>
+							style="font-size: 17px" onclick="iFrameHeight2()">风险提示</a></li>
 						<li role="presentation"><a href="#messages"
 							aria-controls="messages" role="tab" data-toggle="tab"
-							style="font-size: 17px">投资者</a></li>
+							style="font-size: 17px">支持者</a></li>
 						<li role="presentation"><a href="#settings"
 							aria-controls="settings" role="tab" data-toggle="tab"
-							style="font-size: 17px">评论(0)</a></li>
+							style="font-size: 17px">评论()</a></li>
 					</ul>
 
 					<!-- Tab panes -->
@@ -180,24 +184,29 @@
 							</div>
 						<div role="tabpanel" class="tab-pane" id="messages">
 							<div class="row" style="padding-top: 20px;">
+								<c:forEach items="${prorder}" var="pror">
 								<div class="col-md-6" style="padding-left: 35px;">
+							
 									<div class="media" style="padding: 20px;background: #f5f5f5;">
+										
+									
 										<div class="media-left">
 											<img class="media-object img-circle"
 												src="/jmApp/img/default.jpg">
 										</div>
 										<div class="media-body">
 											<h3 class="media-heading" style="padding-left: 20px;">
-												<b>Lily</b>
+												<b>${pror.user.name}</b>
 											</h3>
 											<h5 style="padding-top: 10px;padding-left: 20px;">
-												投资金额：<font color="#f17a00">￥50,000</font>
+												投资金额：<font color="#f17a00">${pror.investment}</font>
 											</h5>
-											<h5 style="padding-left: 20px;">投资时间：2016-05-26</h5>
+											<h5 style="padding-left: 20px;">投资时间：${pror.buyDate}</h5>
 										</div>
 									</div>
-								</div>
-								<div class="col-md-6" style="padding-right: 35px;">
+								</div></c:forEach>
+								
+								<!-- <div class="col-md-6" style="padding-right: 35px;">
 									<div class="media" style="padding: 20px;background: #f5f5f5;">
 										<div class="media-left">
 											<img class="media-object img-circle" src="/jmApp/img/0.jpg"
@@ -213,9 +222,9 @@
 											<h5 style="padding-left: 20px;">投资时间：2016-05-26</h5>
 										</div>
 									</div>
-								</div>
+								</div> -->
 							</div>
-							<div class="row" style="padding-top: 20px;">
+							<!-- <div class="row" style="padding-top: 20px;">
 								<div class="col-md-6" style="padding-left: 35px;">
 									<div class="media" style="padding: 20px;background: #f5f5f5;">
 										<div class="media-left">
@@ -249,9 +258,9 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 							<div class="row" style="margin-top: 30px;"></div>
-						</div>
+						</div> 
 						<div role="tabpanel" class="tab-pane" id="settings">
 							<div class="container"
 								style="width: 700px;padding-left: 10px;padding-top: 20px;padding-bottom: 30px;">
@@ -373,8 +382,8 @@
 					<c:forEach items="${project.projectSupports}" var="support">
 						<div style="background: #fff;margin-top: 20px;border-style:solid; border-width:1px; border-color:#D5D5D5">
 							<p style="margin-top: 20px;margin-left: 10px;">
-								<span style="font-size: 20px;">￥${support.price}</span><span>/份</span><span
-									class="pull-right" style="margin-right: 10px;">已支持3份</span>
+								<span style="font-size: 20px;">￥${support.price}</span><span>/份</span><%-- <span
+									class="pull-right" style="margin-right: 10px;">已支持3份</span> --%>
 							</p>
 							<div class="line-blue"></div>
 							<div style="margin-left: 15px;margin-top: 15px;">

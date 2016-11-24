@@ -15,9 +15,11 @@ import static org.hibernate.criterion.Example.create;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jm.app.bean.Prorder;
+
 
 /**
  * A data access object (DAO) providing persistence and search support for
@@ -139,6 +141,8 @@ public class ProrderDAO {
 			throw re;
 		}
 	}
+	
+	
     /**
      * 统计每个项目已投资金额
      * @return key-项目id value-投资金额
@@ -156,6 +160,30 @@ public class ProrderDAO {
 		}
 		return sumMap;
 	}
+	
+	
+	  /**
+     * 统计每个项目每个投资者已投资金额
+     * @return key-项目id value-投资金额
+     */
+	/*public Map<Integer,Integer> sumInvestByProIdandUserId()
+	{
+		String hql="select o.project.id,o.user.id,sum(o.investment) from Prorder o group by o.project.id,o.user.id";
+		List<Object[]> results = getCurrentSession().createQuery(hql).list();
+		Map<Integer,Integer> sumMap2=new HashMap<Integer,Integer>();
+		for(Object[] objs:results)
+		{
+			Integer id=Integer.valueOf(objs[0].toString());
+			Integer sum=Integer.valueOf(objs[2].toString());
+			Integer nameId=Integer.valueOf(objs[1].toString());
+		
+			sumMap2.put(id,nameId);
+		}
+		
+		//Map<sumMap2,Integer> sumMap=new HashMap<sumMap2,Integer>();
+		
+		return sumMap2;
+	}*/
 	/**
 	 * 获取转让订单
 	 * @return
@@ -203,8 +231,21 @@ public class ProrderDAO {
 			throw re;
 		}
 	}
-
+    public List findByProId(int proId ) {   
+    		String hql = "from Prorder p where p.project.id=? group by p.user.id";
+    		Query query = getCurrentSession().createQuery(hql);
+    		query.setInteger(0, proId);   		
+    		return query.list();
+    	}
+	
 	public static ProrderDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (ProrderDAO) ctx.getBean("ProrderDAO");
+	}
+	
+	public static void main(String[] args) {
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ProrderDAO dao= getFromApplicationContext(ac);
+		
+		System.out.println(dao.findByProId(1));	
 	}
 }

@@ -89,6 +89,7 @@
 	   <property name="detailService">
 	      <ref bean="DetailService"/>
 	   </property>
+	   
 	</bean>
 	<bean id="RegisterAction" class="com.jm.app.action.RegisterAction" scope="prototype">
 	   <property name="registerService">

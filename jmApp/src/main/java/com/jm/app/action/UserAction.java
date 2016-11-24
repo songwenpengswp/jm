@@ -71,7 +71,7 @@ public class UserAction extends ActionSupport {
 		//获取服务在服务器的绝对路径
 		String contextPathString = session.getServletContext().getRealPath("/");  
 		//创建文件对象
-		File savefile = new File(contextPathString+"/user_image",user.getTel()+".jpg"); 
+		File savefile = new File(contextPathString+"/user_image","pic.jpg"); 
 		try {
 			FileUtils.copyFile(image, savefile);
 		} catch (IOException e) {
@@ -114,7 +114,7 @@ public class UserAction extends ActionSupport {
 		session.put("user", user);
 		return SUCCESS;
     }
-	
+    
 	public UserService getUserService() {
 		return userService;
 	}

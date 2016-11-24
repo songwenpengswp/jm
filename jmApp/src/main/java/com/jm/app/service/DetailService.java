@@ -1,6 +1,10 @@
 package com.jm.app.service;
 
+import java.util.List;
+import java.util.Map;
+
 import com.jm.app.bean.Project;
+import com.jm.app.bean.Prorder;
 
 public interface DetailService {
 	
@@ -17,5 +21,14 @@ public interface DetailService {
 	 * @return
 	 */
 	Project getProjectWithSum(int proId);
+	
+	/**
+	 * 统计每个项目目前投资的金额
+	 * @return
+	 */
+	Map<Integer,Integer> getSumByProId();
+	
+	
+	List<Prorder>  getProrder(int proId);
 	
 }

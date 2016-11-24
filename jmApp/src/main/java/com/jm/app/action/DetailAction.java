@@ -1,8 +1,10 @@
-package com.jm.app.action;
+ package com.jm.app.action;
 
+import java.util.List;
 import java.util.Map;
 
 import com.jm.app.bean.Project;
+import com.jm.app.bean.Prorder;
 import com.jm.app.service.DetailService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -26,6 +28,11 @@ public class DetailAction extends ActionSupport {
 		
 		Project pro=detailService.getProject(proId);
 		request.put("project", pro);
+		
+		Project proj=detailService.getProjectWithSum(proId);
+		request.put("project2", proj);
+		List<Prorder> pror=detailService.getProrder(proId);
+		request.put("prorder", pror);
 		return super.execute();
 	}
 

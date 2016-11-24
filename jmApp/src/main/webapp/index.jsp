@@ -11,7 +11,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>电影众筹项目_电影投资项目列表 - 91玖马网</title>
+<title>电影众筹项目_电影投资项目列表 - 91九马网</title>
 <link rel="stylesheet" type="text/css"
 	href="/jmApp/bootstrap-3.3.5-dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="/jmApp/circle_progress/css/progress.css">
@@ -192,20 +192,20 @@
 			<div class="row">
 				<c:forEach items="${proEndList}" var="project">
 					<div class="col-md-4">
-						<div class="thumbnail course-list-img">
+						<div class="thumbnail "><!-- course-list-img -->
 							<a href="/jmApp/jm/DetailAction.action?proId=${project.id}"><img class="img_3"
 								src="/jmApp/project/${project.picture}"></a>
 							<div class="caption text-center">
 								<h3>
 									<b>${project.title}</b>
 								</h3>
-								<h4>以募资金：${project.investSum/10000}万 |
+	<!-- project.investSum/10000 -->	<h4>以募资金：￥${project.investSum==null?0:project.investSum/10000}万 |
 									以募支持者：${project.prorders.size()}人</h4>
 							</div>
 						</div>
 					</div>
 				</c:forEach>
-			</div>
+				
 		</div>
 		<jsp:include page="tailer.jsp"></jsp:include>
 	</div>

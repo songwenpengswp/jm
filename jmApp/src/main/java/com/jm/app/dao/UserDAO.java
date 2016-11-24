@@ -293,12 +293,8 @@ public class UserDAO {
 		// 获取session中的hql语句
 		Query query = getCurrentSession().createQuery(hql);
 		query.setString(0, psaawprd);
-		query.setString(1, tel);
-	
-		query.executeUpdate();
-      
-        
-        
+		query.setString(1, tel);	
+		query.executeUpdate();       
     }
 	
 	public static UserDAO getFromApplicationContext(ApplicationContext ctx) {

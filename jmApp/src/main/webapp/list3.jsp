@@ -35,35 +35,12 @@ color: #333;}
 	background:#333;
 	margin:0 auto;
 	}
-/* .lib_tabborder_sx{border:1px solid #95C9E1;} */
-.lib_Menubox_sx { width:180px;
-	height: 200px;
-	float:left;
-	background:#fff;
 
-	}
- .lib_Menubox_sx ul{width:180px;
-	height:50px;
-	background-color:#fff;
-	text-align:center;
-	line-height:50px;
-	font-size:14px;
-	padding-left:0px;
-}
-.lib_Menubox_sx li{width:180px;
-
-	height:50px;
-	color:#333;
-	display:block;}
-.lib_Menubox_sx li.hover{
-
-color:#fff;
-background-color:#02c18b; } 
 .lib_Contentbox_sx{width:800px;
 	height:auto;
 	background-color:#FFF;
 	float:left;
-	margin-left:100px;
+	margin-left:50px;
 	border: solid 1px #eaeaea;
 	margin-bottom:60px;}
 -->
@@ -85,15 +62,26 @@ function setTab(name,cursel,n){
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
-<div style="margin-top:100px;margin-left:100px; margin-right:100px;" >
-<div class="lib_Menubox_sx ">
-<ul>
-  <li id="one1" name="1" onclick="setTab('one',1,4)" >关于九马</li>
-  <li id="one2" name="2" onclick="setTab('one',2,4)" >发起人手册</li>
-  <li id="one3" name="3" onclick="setTab('one',3,4)" class="hover">用户协议</li>  
-  <li id="one4" name="4" onclick="setTab('one',4,4)">原则与机制</li>
-</ul>
-</div>
+<div style="margin-top:100px;margin-left:60px; margin-right:100px;" >
+<div class="col-md-2"
+			style="border-right: solid 2px #e9e9e9;font-size: 18px;">
+			<ul class="nav nav-pills nav-stacked" role="tablist"
+				style="text-align: center;">
+				<li id="one1" name="1" role="presentation"  onclick="setTab('one',1,4)"
+					class="hover"><a aria-controls="item" role="tab"
+					data-toggle="tab"><span aria-hidden="true"
+						style="margin-right: 10px;"></span>关于九马</a></li>
+				<li id="one2" name="2" role="presentation"  onclick="setTab('one',2,4)"><a
+					aria-controls="account" role="tab" data-toggle="tab"><span
+						aria-hidden="true" style="margin-right: 10px;"></span>发起人手册</a></li>
+				<li id="one3" name="3" role="presentation" class="active" onclick="setTab('one',3,4)"><a
+					aria-controls="order" role="tab" data-toggle="tab"><span
+						aria-hidden="true" style="margin-right: 10px;"></span>用户协议</a></li>
+				<li id="one4" name="4" role="presentation" onclick="setTab('one',4,4)"><a
+					aria-controls="persion" role="tab" data-toggle="tab">原则与机制</a></li>
+
+			</ul>
+		</div>
  <div class="lib_Contentbox_sx "> 
   <div id="con_one_1" style="display:none;" >
   <div align=center >

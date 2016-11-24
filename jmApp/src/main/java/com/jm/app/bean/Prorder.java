@@ -183,4 +183,10 @@ public class Prorder implements java.io.Serializable {
  		}
 		return name;
 	}
+
+	@Override
+	public String toString() {
+		return "Prorder [id=" + id 
+				+ "]";
+	}
 }
