@@ -53,7 +53,11 @@
 									role="button">注册</a>
 							</c:when>
 							<c:otherwise>
-								<a href="/jmApp/login.jsp" class="btn btn-danger" role="button">退出</a>
+							<form method="post" action="/jmApp/jm/outAction.action">
+		                      <button type="submit" class="btn btn-danger" style="margin-right: 20px; margin-left: 20px">退出
+		                      </button>
+		                    </form>
+								<!-- <a href="/jmApp/login.jsp" class="btn btn-danger" role="button">退出</a> -->
 							</c:otherwise>
 						</c:choose>
 
