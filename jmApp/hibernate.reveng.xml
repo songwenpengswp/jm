@@ -9,7 +9,17 @@
 			<generator class="increment"></generator>
 		</primary-key>
 	</table>
-<table name="sms" catalog="jm" class="com.jm.app.bean.Sms">
+	<table name="sms" catalog="jm" class="com.jm.app.bean.Sms">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+	<table name="reply" catalog="jm">
+		<primary-key>
+			<generator class="native"></generator>
+		</primary-key>
+	</table>
+<table name="comments" catalog="jm">
 	<primary-key>
 		<generator class="native"></generator>
 	</primary-key>

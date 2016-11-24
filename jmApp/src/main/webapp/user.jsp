@@ -618,10 +618,9 @@
 								<div class="tab-content">
 									<div role="tabpanel" class="tab-pane active" id="data"
 										style="margin: 20px;">
-
-										<div class="row">
-											<div class="col-md-2">
-									
+										
+											<div class="row">
+												<div class="col-md-2">
 													<div class="thumbnail">
 													  <c:choose>
 													     <c:when test="${user.picture==null }">
@@ -631,16 +630,15 @@
 													         <img id="user_img" src="${user.picture}">
 													     </c:otherwise>
 													  </c:choose>
-															<form action="/jmApp/jm/FileUpload.action">
+														
 														<div class="caption" style="text-align: center;">
 															<p>
 																<input type="file" id="image" name="image"
 																	style="display:none" onChange="upload()"/>
 																<button id="upload_btn" class="btn btn-default">上传照片</button>
 															</p>
-														</div></form>
+														</div>
 													</div>
-													
 												</div>
 											<div class="col-md-5" style="text-align: center;">
 												  <form id="info_frm" class="form-horizontal">

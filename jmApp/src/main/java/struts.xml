@@ -16,6 +16,12 @@
 			class="DetailAction">
 			<result>/detail.jsp</result>
 		</action>
+		
+		 <action name="saveAction"
+			class="SaveAction" >
+			<result  type="redirectAction">DetailAction?proId=${proId}</result>
+				  <result name="success">/login.jsp</result>
+		</action> 
 		<action name="Register"
 			class="RegisterAction" method="register">
 			<result name="reg_success" >/login.jsp</result>
@@ -38,9 +44,9 @@
             <result name="login_success" type="redirectAction">MainAction</result>
 			<result name="login_failture">/login.jsp</result>
         </action>
-        <action name="UserAction" class="UserAction">
+      <action name="UserAction" class="UserAction">
             <result name="error" type="redirectAction">MainAction</result>
-            <result name="success">/user.jsp?</result>
+            <result name="success">/user.jsp</result>
         </action>
         <action name="FileUpload" class="UserAction" method="uploadImage">
             <result type="json">  
@@ -67,4 +73,4 @@
 			<result name="val_success" >/password2.jsp</result>
 		</action>
     </package>
-</struts>    
+</struts>

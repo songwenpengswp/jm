@@ -262,12 +262,15 @@
 							<div class="row" style="margin-top: 30px;"></div>
 						</div> 
 						<div role="tabpanel" class="tab-pane" id="settings">
+						<form >
 							<div class="container"
 								style="width: 700px;padding-left: 10px;padding-top: 20px;padding-bottom: 30px;">
-								<textarea class="form-control" rows="7"></textarea>
-								<button type="button" class="btn btn-info pull-right"
+								<textarea id="title" name="title" class="form-control" rows="7"></textarea>
+								<button type="submit" class="btn btn-info pull-right"
 									style="margin-top: 10px;width: 150px;">发表</button>
 							</div>
+							</form>
+							<c:forEach items="${com}" var="comments">
 							<div
 								style="width:100%;height:1px;margin:0px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></div>
 							<table style="width: 100%">
@@ -277,16 +280,16 @@
 										<img src="/jmApp/img/1.jpg" alt=""
 										style="height: 70px;margin-top: 10px;">
 										<h6 style="text-align: center;">
-											<font color="#f17a00">逗你玩</font>
+											<font color="#f17a00">${comments.user.name }</font>
 										</h6>
 									</td>
 									<td>
 										<div style="min-height: 150px;">
-											<p style="margin-top: 15px;margin-left: 15px;">这也太快了</p>
+											<p style="margin-top: 15px;margin-left: 15px;">${comments.content}</p>
 										</div>
 										<div class="row">
 											<div class="col-md-10" style="text-align: right;">
-												<p>2015-10-30 13:43:52</p>
+												<p>${comments.includeDate}</p>
 											</div>
 											<div class="col-md-2">
 												<div
@@ -355,6 +358,7 @@
 									</td>
 								</tr>
 							</table>
+							</c:forEach>
 						</div>
 					</div>
 				</div>
