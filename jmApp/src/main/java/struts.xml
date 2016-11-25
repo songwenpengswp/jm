@@ -20,7 +20,7 @@
 		 <action name="saveAction"
 			class="SaveAction" >
 			<result  type="redirectAction">DetailAction?proId=${proId}</result>
-				  <result name="success">/login.jsp</result>
+				 
 		</action> 
 		<action name="Register"
 			class="RegisterAction" method="register">

@@ -262,7 +262,7 @@
 							<div class="row" style="margin-top: 30px;"></div>
 						</div> 
 						<div role="tabpanel" class="tab-pane" id="settings">
-						<form >
+						<form action="/jmApp/jm/saveAction.action">
 							<div class="container"
 								style="width: 700px;padding-left: 10px;padding-top: 20px;padding-bottom: 30px;">
 								<textarea id="title" name="title" class="form-control" rows="7"></textarea>
@@ -277,7 +277,7 @@
 								<tr>
 									<td
 										style="background: #f5f5f5;width: 17%;text-align: center;vertical-align: top;">
-										<img src="/jmApp/img/1.jpg" alt=""
+										<img src=${comments.user.picture} alt=""
 										style="height: 70px;margin-top: 10px;">
 										<h6 style="text-align: center;">
 											<font color="#f17a00">${comments.user.name }</font>

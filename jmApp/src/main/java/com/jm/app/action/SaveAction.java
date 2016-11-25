@@ -23,7 +23,7 @@ public class SaveAction extends ActionSupport {
 	private String title;
 
 	private Integer proId;
-	/*private Map<String,Object> session2;*/
+	private Map<String,Object> session2;
 	private ActionContext context;
 	@Override
 	public String execute() throws Exception {
@@ -45,19 +45,11 @@ public class SaveAction extends ActionSupport {
 		comments.setIncludeDate(new Date());
 		comments.setUser(user);
 		commentsService.SaveComments(comments);
-		
-		
-		/*session2=context.getSession();
-		session2.put("proId", proId);*/
+
 		return super.execute();
 	}
 
-	/*
-	 * public DetailService getDetailService() { return detailService; }
-	 * 
-	 * public void setDetailService(DetailService detailService) {
-	 * this.detailService = detailService; }
-	 */
+
 	public CommentsService getCommentsService() {
 		return commentsService;
 	}
@@ -72,6 +64,14 @@ public class SaveAction extends ActionSupport {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Integer getProId() {
+		return proId;
+	}
+
+	public void setProId(Integer proId) {
+		this.proId = proId;
 	}
 
 }

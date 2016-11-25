@@ -28,7 +28,7 @@ public class DetailAction extends ActionSupport {
 	private Map<String,Object> request;
 	private String title;
 	
-	//private Map<String,Object> session;
+	private Map<String,Object> session;
 	@Override
 	public String execute() throws Exception {
 	
@@ -49,8 +49,8 @@ public class DetailAction extends ActionSupport {
 		List<Comments> comments=commentsService.getByProjectId(proId);
 		request.put("com", comments);
 		
-		//session=(Map) context.getSession();
-        //session.put("proId", proId);
+		session=(Map) context.getSession();
+        session.put("proId", proId);
 	/*	HttpSession session = ServletActionContext.getRequest().getSession();	
 		proId=(Integer) session.getAttribute("proId");
 		Project project=new Project();
