@@ -3,6 +3,7 @@ package com.jm.app.service;
 import java.util.List;
 import java.util.Map;
 
+import com.jm.app.bean.Message;
 import com.jm.app.bean.Prorder;
 import com.jm.app.bean.User;
 
@@ -73,4 +74,10 @@ public interface UserService {
 	 * @return
 	 */
 	User findUserByTel(String tel) ;
+	
+
+	List findByUser(int id);
+	
+	Message findById(int id);
+	
 }

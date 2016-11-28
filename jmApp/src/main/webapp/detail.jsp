@@ -128,15 +128,15 @@
 								<span>${project.investRate}%</span>
 							</div>
 						</div>
-						<div class="timer">
+												<div class="timer">
 							<p class="text-muted" style="font-size:15px;">
 								距离众筹结束还有: <span><em><font color="#f17a00"> <span
-											class="days"></span> 天 <span class="hours"></span> 小时 <span
-											class="minutes"></span> 分 <span class="seconds"></span> 秒
+											id="days"></span> 天 <span id="hours"></span> 小时 <span
+											id="minutes"></span> 分 <span id="seconds"></span> 秒
 									</font></em></span>
 							</p>
 						</div>
-						
+			
 
 						
 						<div class="investDetailSupport">

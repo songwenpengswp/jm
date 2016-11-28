@@ -8,15 +8,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.jm.app.bean.Message;
 import com.jm.app.bean.Project;
 import com.jm.app.bean.Prorder;
 import com.jm.app.bean.User;
+import com.jm.app.dao.MessageDAO;
 import com.jm.app.dao.UserDAO;
+import com.jm.app.dao.UserMessageDAO;
 
 public class UserServiceImpl implements UserService {
 
 	private UserDAO userDao;
-
+	private UserMessageDAO umDao;
+	private MessageDAO mDao;
 	@Override
 	public int[][] getSumbyType(String tel) {
 		User user = userDao.findByTel(tel).get(0);
@@ -180,5 +184,31 @@ public class UserServiceImpl implements UserService {
 		User user = userDao.findBtTel(tel);
 				return user;
 	}
-    
+	@Override
+	public List findByUser(int id) {
+		// TODO Auto-generated method stub
+		return umDao.findByUser(id);
+	}
+
+	@Override
+	public Message findById(int id) {
+		// TODO Auto-generated method stub
+		return mDao.findById(id);
+	}
+	public UserMessageDAO getUmDao() {
+		return umDao;
+	}
+
+	public void setUmDao(UserMessageDAO umDao) {
+		this.umDao = umDao;
+	}
+
+	public MessageDAO getmDao() {
+		return mDao;
+	}
+
+	public void setmDao(MessageDAO mDao) {
+		this.mDao = mDao;
+	}
+
 }

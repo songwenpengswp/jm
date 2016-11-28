@@ -109,7 +109,7 @@
 						<div class="col-md-2">
 							<div class="checkbox">
 								<label><input type="checkbox" checked="false" id="yes"> <font
-									color="white">已阅读并同意</font></label>
+								>已阅读并同意</font></label>
 							</div>
 						</div>
 						<script type="text/javascript">

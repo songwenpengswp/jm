@@ -13,6 +13,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.jm.app.bean.Prorder;
 import com.jm.app.bean.User;
+import com.jm.app.bean.UserMessage;
 import com.jm.app.dao.UserDAO;
 import com.jm.app.service.UserService;
 import com.opensymphony.xwork2.ActionContext;
@@ -39,11 +40,10 @@ public class UserAction extends ActionSupport {
 	
 	@Override
 	public String execute() throws Exception {
-
+		
 		context=ActionContext.getContext();
 		request=(Map) context.get("request");
-		session=(Map) context.getSession();
-		
+		session=(Map) context.getSession();		
         User user=(User)session.get("user");
         if(user==null)
         	return ERROR;
@@ -60,6 +60,8 @@ public class UserAction extends ActionSupport {
         	request.put("allOrderList", allOrderList);
         	Map<Integer,List<Prorder>> orderMap=userService.getProrderByStatus(user.getTel());
         	request.put("orderMap", orderMap);
+        	List<UserMessage> um=userService.findByUser(user.getId());
+        	request.put("um", um);
         	return SUCCESS;
         }
 	}
@@ -86,7 +88,6 @@ public class UserAction extends ActionSupport {
 		user.setPicture(imgurl);
 		return SUCCESS;
 	}
-
 	
 	public String saveInfo()
 	{

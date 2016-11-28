@@ -33,32 +33,37 @@
 		autoclose : true,
 		todayHighlight : true
 	});
-	function upload(){
-	   
-	   $.ajaxFileUpload({
-				url : '/jmApp/jm/FileUpload.action', //url自己写   
-				secureuri : false, //这个是啥没啥用  
-				type : 'post',
-				fileElementId : 'image',//file标签的id    
-				dataType : 'json',//返回数据的类型    
-				//data:{name:'logan'},//一同上传的数据    
-				success : function(data, status) {
-					if (data.imageUrl) {
+	function upload() {
 
-						$('#user_img').attr('src', data.imageUrl+"?tempid="+Math.random());
-						$('#image').replaceWith('<input type="file" id="image" name="image" style="display:none" onChange="upload()"/>');
-						
-					} else {
-						//alert(data.msg);
-						//window.location.href='supplyDataReport';  
-					}
+		$
+				.ajaxFileUpload({
+					url : '/jmApp/jm/FileUpload.action', //url自己写   
+					secureuri : false, //这个是啥没啥用  
+					type : 'post',
+					fileElementId : 'image',//file标签的id    
+					dataType : 'json',//返回数据的类型    
+					//data:{name:'logan'},//一同上传的数据    
+					success : function(data, status) {
 
-				}/*,   
-				            error: function (data, status, e) {   
-				                alert(e);   
-				            }*/
-			});
-	   
+						if (data.imageUrl) {
+
+							$('#user_img').attr('src',
+									data.imageUrl + "?tempid=" + Math.random());
+							$('#image')
+									.replaceWith(
+											'<input type="file" id="image" name="image" style="display:none" onChange="upload()"/>');
+
+						} else {
+							//alert(data.msg);
+							//window.location.href='supplyDataReport';  
+						}
+
+					}/*,   
+														            error: function (data, status, e) {   
+														                alert(e);   
+														            }*/
+				});
+
 	};
 	function initSex() {
 		var sex = ${user.sex};
@@ -145,28 +150,44 @@
 						style="border-right: solid 2px #e9e9e9;font-size: 18px; ">
 						<ul class="nav nav-pills nav-stacked" role="tablist"
 							style="text-align: center;">
-							<li role="presentation" class="active" style=""><a
+							<li role="presentation" style=""><a
 								href="#item" aria-controls="item" role="tab" data-toggle="tab"><span
-									aria-hidden="true" style="margin-right: 10px;"></span>我的项目</a></li>
-							<li id="x" name="x" role="presentation"><a href="#account"
+									 aria-hidden="true"
+									style="margin-right: 10px;"></span>我的项目</a></li>
+							<li id="x" name="x" role="presentation"><a  href="#account"
 								aria-controls="account" role="tab" data-toggle="tab"><span
-									aria-hidden="true" style="margin-right: 10px;"></span>账户管理</a></li>
+									 aria-hidden="true"
+									style="margin-right: 10px;"></span>账户管理</a></li>
 							<li role="presentation"><a href="#order"
 								aria-controls="order" role="tab" data-toggle="tab"><span
-									aria-hidden="true" style="margin-right: 10px;"></span>订单管理</a></li>
+									 aria-hidden="true"
+									style="margin-right: 10px;"></span>订单管理</a></li>
 							<li role="presentation"><a href="#persion"
 								aria-controls="persion" role="tab" data-toggle="tab"><span
-									aria-hidden="true" style="margin-right: 10px;"></span>个人设置</a></li>
-							<li role="presentation"><a href="#save" aria-controls="save"
-								role="tab" data-toggle="tab"><span aria-hidden="true"
+									 aria-hidden="true"
+									style="margin-right: 10px;"></span>个人设置</a></li>
+							<li role="presentation"  class="active"><a href="#save" aria-controls="save"
+								role="tab" data-toggle="tab"><span
+									 aria-hidden="true"
 									style="margin-right: 10px;"></span>消息</a></li>
 
 						</ul>
 					</div>
 					<div class="tab-content col-md-10">
-						<div role="tabpanel" class="tab-pane active" id="item">
+						<div role="tabpanel" class="tab-pane " id="item">
 							<div class="row">
-							
+								<%--  <div
+									style="background: #f5f5f5;border: solid 1px #e9e9e9;margin-top: 20px;float: left;width: 45%;text-align: center;margin-left: 20px;">
+									<h5 class="text-muted" style="margin-top: 30px;">
+										财富项目：累计投资${totalSumByType[0][0] }笔<span
+											style="margin-left: 30px;">累计投资:${totalSum[0][1] }(元)</span>
+									</h5>
+									<h5 class="text-muted"
+										style="margin-top: 30px;margin-bottom: 20px;">
+										项目：累计投资${totalSumByType[1][0]+totalSumByType[0][0]}笔<span
+											style="margin-left: 30px;">累计投资:${totalSum[1][1]+totalSum[0][1] }(元)</span>
+									</h5>
+								</div>  --%>
 								<div class=""
 									style="background: #f5f5f5;border: solid 1px #e9e9e9;margin-top: 20px;float: right;width: 45%;text-align: center;margin-right: 300px;">
 									<h5 class="text-muted"
@@ -594,15 +615,13 @@
 										aria-controls="safe" role="tab" data-toggle="tab"
 										style="font-size: 15px">安全中心</a></li>
 								</ul>
-						<div class="tab-content">
+								<div class="tab-content">
 									<div role="tabpanel" class="tab-pane active" id="data"
 										style="margin: 20px;">
 										
-											<div class="row">	
+											<div class="row">
 												<div class="col-md-2">
-												
 													<div class="thumbnail">
-												<!-- <form action="/jmApp/jm/FileUpload.action"> -->
 													  <c:choose>
 													     <c:when test="${user.picture==null }">
 													         <img id="user_img" src="/jmApp/img/pic.png">
@@ -618,11 +637,10 @@
 																	style="display:none" onChange="upload()"/>
 																<button id="upload_btn" class="btn btn-default">上传照片</button>
 															</p>
-														</div><!-- </form> -->
+														</div>
 													</div>
 												</div>
-											
-												<div class="col-md-5" style="text-align: center;">
+											<div class="col-md-5" style="text-align: center;">
 												  <form id="info_frm" class="form-horizontal">
 													<div class="form-group">
 														<label for="name" class="col-sm-3 control-label">别名：</label>
@@ -640,18 +658,21 @@
 													<div class="form-group">
 														<label for="sex" class="col-sm-3 control-label">性别：</label>
 														<div class="col-sm-7" id="sex">
-
+														   
 															<label class="radio-inline"> <input type="radio"
-																name="sex" id="msex" value="1" checked> 男
+																name="sex" id="msex"
+																value="1" checked> 男
 															</label> <label class="radio-inline"> <input type="radio"
-																name="sex" id="fsex" value="0"> 女
+																name="sex" id="fsex"
+																value="0"> 女
 															</label>
 														</div>
 													</div>
-													<button id="info_btn" type="submit" class="btn btn-warning">保存更新</button>
+													<button id="info_btn" type="submit"   class="btn btn-warning"
+													 onclick="function a(){document.getElementById('info_frm').submit();}setTimeout(a,3000);">保存更新</button>
 													
-												</form>
-											</div>
+												 </form>
+												</div>
 										</div>
 
 									</div>
@@ -661,9 +682,7 @@
 										<div>
 								      	收件人姓名：${user.name } 手机号：${user.consignTel } 邮政编号：${user.postcode }  收件人地址：${user.address }  	邮箱：${user.postcode }
 										</div> --%>
-										<p>
-										<h4>收货人地址</h4>
-										</p>
+										<p><h4>收货人地址</h4></p>
 										<form id="address_frm" class="form-horizontal">
 											<div id="city_select" class="form-group">
 												<label for="local" class="col-sm-2 control-label">所在地:</label>
@@ -712,7 +731,8 @@
 											</div>
 											<div class="col-sm-6" style="text-align: center;">
 												<button id="address_btn" type="button"
-													class="btn btn-warning">保存更新</button>
+													class="btn btn-warning"
+												>保存更新</button>
 											</div>
 										</form>
 									</div>
@@ -787,45 +807,46 @@
 								</div>
 							</div>
 						</div>
-						<div role="tabpanel" class="tab-pane" id="save">
-							<!-- <div style="margin-top: 20px;">
-								<ul class="nav nav-tabs" role="tablist">
-									<li role="presentation" class="active"><a href="#jm-coin"
-										aria-controls="jm-coin" role="tab" data-toggle="tab"
-										style="font-size: 15px">系统公告</a></li>
-									<li role="presentation"><a href="#red-packet"
-										aria-controls="red-packet" role="tab" data-toggle="tab"
-										style="font-size: 15px">项目消息</a></li>
-								</ul>
-							</div> -->
-
-							<div class="tab-content">
-								<div role="tabpanel" class="tab-pane active" id="jm-coin"
+						<div role="tabpanel" class="tab-pane"   id="save">
+                          <div class="tab-content" >
+								<div  role="tabpanel" class="tab-pane active" id="jm-coin"
 									style="background: #f5f5f5;margin-left:20px">
 									<c:forEach items="${um}" var="um">
-										<div
-											style="  background: #fff; font-size:18px;text-decoration:none;border-bottom:1px dashed #ccc;">
-											<a
-												href="/jmApp/jm/UserMessageAction.action?messageId=${um.message.id}"
-												target="_blank"> ${um.message.title}</a>
+										<div style="background: #fff; font-size:18px;text-decoration:none;border-bottom:1px dashed #ccc;">
+										 	<a href="/jmApp/jm/UserMessageAction.action?messageId=${um.message.id}" target="_blank"
+												;style="">
+												${um.message.title}</a>
+												
 										</div>
-										<p
-											style="background: #fff; white-space:nowrap;
+										<p style="background: #fff; white-space:nowrap;
                                       text-overflow:ellipsis; overflow: hidden;">
-											&nbsp;&nbsp;&nbsp;&nbsp;${um.message.content}</p>
+                                      &nbsp;&nbsp;&nbsp;&nbsp;${um.message.content}</p>
 
 									</c:forEach>
 								</div>
-								<!-- <div role="tabpanel" class="tab-pane" id="red-packet"
-									style="margin: 20px;"></div> -->
 							</div>
 						</div>
+						
+						
+						<div role="tabpanel" class="tab-pane active"  >
 
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" 
+									style="margin: 20px;">
+										<%-- 	<c:forEach items="${um}" var="um"> --%>
+										<div><h3>${message.title}</h3>
+										${message.content}<br>
+										</div>
+									<%-- </c:forEach> --%>
+									</div>
+								<div role="tabpanel" class="tab-pane" id="red-packet"
+									style="margin: 20px;"></div>
+							</div>
+
+						</div>
 					</div>
 				</div>
-
 			</div>
-
 		</div>
 	</div>
 

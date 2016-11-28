@@ -33,7 +33,9 @@
 				<value>com.jm.app.bean.Deliver</value>
 				<value>com.jm.app.bean.Sms</value>
 				<value>com.jm.app.bean.Reply</value>
-				<value>com.jm.app.bean.Comments</value></list>
+				<value>com.jm.app.bean.Comments</value>
+				<value>com.jm.app.bean.Message</value>
+				<value>com.jm.app.bean.UserMessage</value></list>
 		</property>
 	</bean>
 	<bean id="transactionManager"
@@ -71,7 +73,17 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="UserAction" class="com.jm.app.action.UserAction">
+	<bean id="MessageDAO" class="com.jm.app.dao.MessageDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="UserMessageDAO" class="com.jm.app.dao.UserMessageDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+		<bean id="UserAction" class="com.jm.app.action.UserAction">
 		<property name="userService">
 			<ref bean="UserService" />
 		</property>
@@ -165,6 +177,12 @@
 		<property name="userDao">
 			<ref bean="UserDAO" />
 		</property>
+		<property name="umDao">
+			<ref bean="UserMessageDAO" />
+		</property>
+		<property name="mDao">
+			<ref bean="MessageDAO" />
+		</property>
 	</bean>
 	<bean id="UpAction" class="com.jm.app.action.UpAction">
 
@@ -202,5 +220,11 @@
 		<property name="commentsDao">
 			<ref bean="CommentsDAO" />
 		</property>
+	</bean>
+	
+	<bean id="UserMessageAction" class="com.jm.app.action.UserMessageAction">
+		 <property name="userService">
+			<ref bean="UserService" />
+		</property> 
 	</bean>
 	</beans>

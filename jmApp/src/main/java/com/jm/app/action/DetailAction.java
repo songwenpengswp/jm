@@ -32,9 +32,6 @@ public class DetailAction extends ActionSupport {
 	@Override
 	public String execute() throws Exception {
 	
-		
-		
-		
 		context=ActionContext.getContext();
 		request=(Map) context.get("request");
 		
@@ -51,24 +48,6 @@ public class DetailAction extends ActionSupport {
 		
 		session=(Map) context.getSession();
         session.put("proId", proId);
-	/*	HttpSession session = ServletActionContext.getRequest().getSession();	
-		proId=(Integer) session.getAttribute("proId");
-		Project project=new Project();
-		project.setId(proId);
-		User user=(User)session.getAttribute("user");
-		if(user==null){
-			return ERROR;
-		}	
-		Comments comments2 = new Comments();		
-		comments2.setContent(title);
-		comments2.setProject(project);
-		comments2.setIncludeDate(new Date());
-		comments2.setUser(user);
-		commentsService.SaveComments(comments2);*/
-		
-		
-	
-		
 				
 		return super.execute();
 	}
