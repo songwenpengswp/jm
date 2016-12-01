@@ -21,7 +21,12 @@
 			class="SaveAction" >
 			<result  type="redirectAction">DetailAction?proId=${proId}</result>
 				 
-		</action> 
+		</action>
+		<action name="replyAction"
+			class="ReplyAction" >
+			<result  type="redirectAction">DetailAction?proId=${proId}</result>
+				 
+		</action>
 		<action name="Register"
 			class="RegisterAction" method="register">
 			<result name="reg_success" >/login.jsp</result>

@@ -341,16 +341,17 @@
 															aria-expanded="false" aria-controls="collapseExample2">我也说一句</a>
 													</div>
 												</div>
+												<form action="/jmApp/jm/replyAction.action">
 												<div class="collapse" id="collapseExample2"
 													style="margin-top: 10px;">
-													<textarea class="form-control" rows="5"></textarea>
+													<textarea id="title" name="title" class="form-control" rows="5"></textarea>
 													<div class="media">
 														<div class="media-body">
-															<button type="button" class="btn btn-info pull-right">发表</button>
+															<button type="submit" class="btn btn-info pull-right">发表</button>
 														</div>
 													</div>
 												</div>
-
+												</form>
 
 											</div>
 									</td>

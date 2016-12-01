@@ -1,6 +1,8 @@
 package com.jm.app.bean;
 
 import java.sql.Timestamp;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -23,7 +25,7 @@ public class Reply implements java.io.Serializable {
 	private Comments comments;
 	private User user;
 	private String content;
-	private Timestamp includeDate;
+	private Date includeDate;
 
 	// Constructors
 
@@ -33,7 +35,7 @@ public class Reply implements java.io.Serializable {
 
 	/** full constructor */
 	public Reply(Comments comments, User user, String content,
-			Timestamp includeDate) {
+			Date includeDate) {
 		this.comments = comments;
 		this.user = user;
 		this.content = content;
@@ -82,11 +84,11 @@ public class Reply implements java.io.Serializable {
 	}
 
 	@Column(name = "includeDate", length = 19)
-	public Timestamp getIncludeDate() {
+	public Date getIncludeDate() {
 		return this.includeDate;
 	}
 
-	public void setIncludeDate(Timestamp includeDate) {
+	public void setIncludeDate(Date includeDate) {
 		this.includeDate = includeDate;
 	}
 

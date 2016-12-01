@@ -226,6 +226,11 @@
 			<ref bean="CommentsDAO" />
 		</property>
 	</bean>
+	<bean id="ReplyService" class="com.jm.app.service.ReplyServiceImpl">
+		<property name="replyDao">
+			<ref bean="ReplyDAO" />
+		</property>
+	</bean>
 	
 	<bean id="UserMessageAction" class="com.jm.app.action.UserMessageAction">
 		 <property name="userService">
@@ -247,6 +252,12 @@
 		scope="prototype">
 		<property name="proService">
 			<ref bean="ProjectService" />
+		</property>
+	</bean>
+	<bean id="ReplyAction" class="com.jm.app.action.ReplyAction"
+		scope="prototype">
+		<property name="replyService">
+			<ref bean="ReplyService" />
 		</property>
 	</bean>
 

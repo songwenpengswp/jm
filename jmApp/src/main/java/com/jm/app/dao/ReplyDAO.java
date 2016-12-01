@@ -127,6 +127,12 @@ public class ReplyDAO {
 			throw re;
 		}
 	}
+	public List findByComId(int comId ) {   
+ 		String hql = "from Reply r where r.comments.id=?";
+ 		Query query = getCurrentSession().createQuery(hql);
+ 		query.setInteger(0, comId);		
+ 		return query.list();
+ 	}
 
 	public Reply merge(Reply detachedInstance) {
 		log.debug("merging Reply instance");
