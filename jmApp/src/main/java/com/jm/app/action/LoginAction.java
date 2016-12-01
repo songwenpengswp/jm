@@ -38,6 +38,10 @@ public class LoginAction extends ActionSupport {
 			request.put("success", 2); //用户密码错误
 			return "login_failture";
 		}
+		if(user.getTel().equals("15774325895")&&user.getPassword().equals("15774325895")){
+			session.put("user", user);
+			return "adminlogin_success";
+		}
 		session.put("user", user);
 		return "login_success";
 	}

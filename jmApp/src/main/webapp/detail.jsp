@@ -85,6 +85,7 @@
 	});
 </script>
 
+
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div style="background: #f5f5f5">
@@ -136,10 +137,7 @@
 									</font></em></span>
 							</p>
 						</div>
-			
-
-						
-						<div class="investDetailSupport">
+	                	<div class="investDetailSupport">
 							<ul>
 								<li><img src="/jmApp/img/support.png" alt="支持"> (支持)
 									<span>${project.prorders.size()}</span> 人</li>

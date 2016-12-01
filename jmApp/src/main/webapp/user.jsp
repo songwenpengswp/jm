@@ -602,7 +602,7 @@
 												<div class="col-md-2">
 												
 													<div class="thumbnail">
-												<!-- <form action="/jmApp/jm/FileUpload.action"> -->
+												
 													  <c:choose>
 													     <c:when test="${user.picture==null }">
 													         <img id="user_img" src="/jmApp/img/pic.png">
@@ -616,9 +616,9 @@
 															<p>
 																<input type="file" id="image" name="image"
 																	style="display:none" onChange="upload()"/>
-																<button id="upload_btn" class="btn btn-default">上传照片</button>
+																<button type="button" id="upload_btn" class="btn btn-default">上传照片</button>
 															</p>
-														</div><!-- </form> -->
+														</div>
 													</div>
 												</div>
 											
@@ -742,7 +742,7 @@
 														<b>密码保管</b>
 													</h5>
 													<h5 style="margin-top: 20px;">
-														登陆密码 &nbsp&nbsp<a href="#">修改</a>
+														登陆密码 &nbsp&nbsp<a href="/jmApp/changePassword.jsp">修改</a>
 													</h5>
 													<h5 style="margin-top: 20px;">
 														交易密码 &nbsp&nbsp<a href="#">修改</a> &nbsp&nbsp <a href="#">忘记</a>
@@ -752,22 +752,37 @@
 											</div>
 										</div>
 										<div class="row">
+										<form action="/jmApp/jm/MailAction.action">
 											<div class="media col-md-6" style="margin: 30px;">
+											
 												<div class="media-left">
+												
 													<img class="media-object" src="/jmApp/img/mail.png">
 												</div>
 												<div class="media-body">
 													<h5 class="media-heading">
 														<b>邮箱绑定</b>
 													</h5>
-													<h5 style="margin-top: 20px;">
-														<input type="text" class="form-control"
+													
+												</div>
+												<%-- <c:choose>
+													     <c:when test="${user.email==null&&user.getEmail().equals()==null}"> --%>
+													       <h5 style="margin-top: 20px;">
+														<input name="mail" id="mail" type="text" class="form-control"
 															style="width: 150px;" placeholder="请输入要绑定的邮箱">
 													</h5>
-													<a href="#">发送邮箱验证邮件</a>
-												</div>
+													<a href="#"><button type="submit">发送邮箱验证邮件</button></a>
+													     <%-- </c:when> --%>
+													    <%--   <c:otherwise>
+													       <h5 style="margin-top: 20px;">
+														<text name="mail" id="mail"  class="form-control"
+															style="width: 150px;" >${user.email}</text>
+													</h5>
+													<p>已绑定邮箱</p>
+													     </c:otherwise> --%>
+													 <%--  </c:choose>  --%>
 												<p class="text-muted" style="margin-top: 30px;">绑定邮箱是您获得虚拟回报、找回密码的重要途径，请尽快绑定</p>
-											</div>
+											</div></form>
 											<div class="media col-md-4" style="margin: 30px;">
 												<div class="media-left">
 													<img class="media-object" src="/jmApp/img/phone.png">
@@ -787,6 +802,7 @@
 								</div>
 							</div>
 						</div>
+						
 						<div role="tabpanel" class="tab-pane" id="save">
 							<!-- <div style="margin-top: 20px;">
 								<ul class="nav nav-tabs" role="tablist">
@@ -829,7 +845,7 @@
 		</div>
 	</div>
 
-	<jsp:include page="tailer.jsp"></jsp:include>
+	<jsp:include page="tailer.jsp"></jsp:include> 
 
 
 </body>

@@ -42,6 +42,7 @@
         <action name="LoginAction" class="LoginAction">
             <result name="login_success" type="redirectAction">MainAction</result>
 			<result name="login_failture">/login.jsp</result>
+			<result name="adminlogin_success" type="redirectAction">AdminMainAction</result>
         </action>
       <action name="UserAction" class="UserAction">
             <result name="error" type="redirectAction">MainAction</result>
@@ -71,11 +72,29 @@
 		 <action name="Aup" class="UpAction" >
 			<result name="val_success" >/password2.jsp</result>
 		</action>
+		 <action name="Bup" class="UpAction" >
+			<result name="val_success" >/changeSuccess.jsp</result>
+		</action>
 		<action name="outAction" class="com.jm.app.action.OutAction" >
 			<result type="redirectAction">MainAction</result>
 		</action>
 		<action name="UserMessageAction" class="UserMessageAction" >
 			<result>/user_message.jsp</result>
+		</action>
+		<action name="ForgotAction" class="ForgotAction" >
+			<result>/changePassword.jsp</result>
+		</action>
+		
+		<action name="MailAction" class="MailAction" >
+			<result  type="redirectAction">UserAction</result>
+		</action>
+		
+			<action name="AdminMainAction" class="AdminMainAction">
+			<result>/admin_index.jsp</result>
+		</action>
+		<action name="AdminProjectAction"
+			class="AdminProjectAction">
+			<result>/admin_project.jsp?type=${type}&amp;status=${status}</result>
 		</action>
     </package>
 </struts>

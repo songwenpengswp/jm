@@ -6,7 +6,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!DOCTYPE html>
 <html lang="en"></html>
-<head>
+<head> 
 <title>忘记密码--重置密码</title>
     <link type="text/css" rel="stylesheet" href="/jmApp/css/myzhaopin.css" />
     <link type="text/css" rel="stylesheet" href="/jmApp/css/login.css" />
@@ -52,30 +52,30 @@ height: 100%;
         
 
 <div class="welcomelogin" style="margin-top: 65px">
-    找回密码
+    密码修改
 </div>
 <div class="login">
     <div class="msgparent">
         <div class="msgcontainer">
             <div class="tabs">
                 <ul class="tab">
-                        <li style="margin-left: 5px;class="curr">手机找回</li>
+                        <li style="margin-left: 5px;class="curr">请输入密码</li>
                 </ul>
             </div>
 
             <dl style="border-top: 1px solid #cccccc; padding: 20px 0;">
-                <dt class="msgtitle">
+                <!-- <dt class="msgtitle">
                     <img src="/jmApp/img/step02.jpg">
-                </dt>
+                </dt> -->
                 <dd style="width:100%;">
                     <div style="margin:0 auto;overflow: hidden;width:416px;">
-                        <form action="/jmApp/jm/Aup.action">
+                        <form action="/jmApp/jm/Bup.action">
                             <input id="bkurl" name="bkurl" type="hidden" value="">
                             <input data-val="true" data-val-required="错误的帐号参数" id="Receiver" name="Receiver" type="hidden" value="15590062451">
                             <input data-val="true" data-val-required="错误的验证码参数" id="SecurityCode" name="SecurityCode" type="hidden" value="155573">
                             <p style="margin:10px 0">
                                 <b style="font-size:20px;font-family:微软雅黑,Arial,Helvetica,sans-serif,simsun">
-                                    验证成功，请重新设置密码
+                                   修改密码
                                 </b>
                             </p>
 

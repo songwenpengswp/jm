@@ -1,5 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+encoding//src/main/java/com/jm/app/util/Mail.java=UTF-8
+encoding//src/main/java/com/jm/app/util/MailUtil.java=UTF-8
+encoding//src/main/java/com/jm/app/util/SendEmail.java=UTF-8
 encoding//src/main/resources=UTF-8
 encoding//src/main/webapp/detail.jsp=UTF-8
 encoding//src/main/webapp/files/style2.css=UTF-8

@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
 	xmlns:tx="http://www.springframework.org/schema/tx">
-
+<import resource="classpath*:spring/**/*.xml" />
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="url" value="jdbc:mysql://localhost:3306/jm"></property>
@@ -190,7 +190,12 @@
 			<ref bean="UserService" />
 		</property>
 	</bean>
-	
+	<bean id="ForgotAction" class="com.jm.app.action.ForgotAction">
+
+		<property name="userService">
+			<ref bean="UserService" />
+		</property>
+	</bean>
 	<bean id="SaveAction" class="com.jm.app.action.SaveAction">
 
 		<property name="commentsService">
@@ -227,4 +232,22 @@
 			<ref bean="UserService" />
 		</property> 
 	</bean>
+	
+	<bean id="MailAction" class="com.jm.app.action.MailAction">
+		 <property name="us">
+			<ref bean="UserService" />
+		</property> 
+	</bean>
+	<bean id="AdminMainAction" class="com.jm.app.action.AdminMainAction" scope="prototype">
+		<property name="mainService">
+			<ref bean="MainService" />
+		</property>
+	</bean>
+	<bean id="AdminProjectAction" class="com.jm.app.action.AdminProjectAction"
+		scope="prototype">
+		<property name="proService">
+			<ref bean="ProjectService" />
+		</property>
+	</bean>
+
 	</beans>
