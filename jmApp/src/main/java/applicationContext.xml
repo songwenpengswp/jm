@@ -107,7 +107,9 @@
 		<property name="commentsService">
 			<ref bean="CommentsService" />
 		</property>
-
+		<property name="replyService">
+			<ref bean="ReplyService" />
+		</property>
 	</bean>
 	<bean id="RegisterAction" class="com.jm.app.action.RegisterAction"
 		scope="prototype">

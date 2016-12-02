@@ -2,7 +2,9 @@ package com.jm.app.service;
 
 import java.util.List;
 
+import com.jm.app.bean.Comments;
 import com.jm.app.bean.Reply;
+import com.jm.app.dao.CommentsDAO;
 import com.jm.app.dao.ReplyDAO;
 
 public class ReplyServiceImpl implements ReplyService {
@@ -16,10 +18,11 @@ public class ReplyServiceImpl implements ReplyService {
 	}
 
 	@Override
-	public void SaveReply(Reply reply) {
-		replyDao.save(reply);
+	public void Save(Reply r) {
+		replyDao.save(r);
 
 	}
+	
 
 	public ReplyDAO getReplyDao() {
 		return replyDao;
@@ -28,6 +31,5 @@ public class ReplyServiceImpl implements ReplyService {
 	public void setReplyDao(ReplyDAO replyDao) {
 		this.replyDao = replyDao;
 	}
-	
 
 }

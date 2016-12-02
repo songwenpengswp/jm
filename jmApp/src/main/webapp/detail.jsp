@@ -84,8 +84,6 @@
 		});
 	});
 </script>
-
-
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<div style="background: #f5f5f5">
@@ -123,13 +121,13 @@
 							<div
 								class="progress-bar progress-bar-warning progress-bar-striped"
 								role="progressbar" aria-valuenow="${project.investRate}"
-								aria-valuemin="0" aria-valuemax="100" style="width: ${project.investRate}%">
+								aria-valuemin="0" aria-valuemax="100"
+								style="width: ${project.investRate}%">
 								<span class="sr-only">${project.investRate}% Complete
-									(warning)</span> <br />
-								<span>${project.investRate}%</span>
+									(warning)</span> <br /> <span>${project.investRate}%</span>
 							</div>
 						</div>
-												<div class="timer">
+						<div class="timer">
 							<p class="text-muted" style="font-size:15px;">
 								距离众筹结束还有: <span><em><font color="#f17a00"> <span
 											id="days"></span> 天 <span id="hours"></span> 小时 <span
@@ -137,7 +135,7 @@
 									</font></em></span>
 							</p>
 						</div>
-	                	<div class="investDetailSupport">
+						<div class="investDetailSupport">
 							<ul>
 								<li><img src="/jmApp/img/support.png" alt="支持"> (支持)
 									<span>${project.prorders.size()}</span> 人</li>
@@ -173,37 +171,34 @@
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="home"
-							style="margin: 20px;">
-							
-							</div>
+							style="margin: 20px;"></div>
 						<div role="tabpanel" class="tab-pane" id="profile"
-							style="margin: 20px;">
-							
-							</div>
+							style="margin: 20px;"></div>
 						<div role="tabpanel" class="tab-pane" id="messages">
 							<div class="row" style="padding-top: 20px;">
 								<c:forEach items="${prorder}" var="pror">
-								<div class="col-md-6" style="padding-left: 35px;">
-							
-									<div class="media" style="padding: 20px;background: #f5f5f5;">
-										
-									
-										<div class="media-left">
-											<img class="media-object img-circle"
-												src="/jmApp/img/default.jpg">
-										</div>
-										<div class="media-body">
-											<h3 class="media-heading" style="padding-left: 20px;">
-												<b>${pror.user.name}</b>
-											</h3>
-											<h5 style="padding-top: 10px;padding-left: 20px;">
-												投资金额：<font color="#f17a00">${pror.investment}</font>
-											</h5>
-											<h5 style="padding-left: 20px;">投资时间：${pror.buyDate}</h5>
+									<div class="col-md-6" style="padding-left: 35px;">
+
+										<div class="media" style="padding: 20px;background: #f5f5f5;">
+
+
+											<div class="media-left">
+												<img class="media-object img-circle"
+													src="/jmApp/img/default.jpg">
+											</div>
+											<div class="media-body">
+												<h3 class="media-heading" style="padding-left: 20px;">
+													<b>${pror.user.name}</b>
+												</h3>
+												<h5 style="padding-top: 10px;padding-left: 20px;">
+													投资金额：<font color="#f17a00">${pror.investment}</font>
+												</h5>
+												<h5 style="padding-left: 20px;">投资时间：${pror.buyDate}</h5>
+											</div>
 										</div>
 									</div>
-								</div></c:forEach>
-								
+								</c:forEach>
+
 								<!-- <div class="col-md-6" style="padding-right: 35px;">
 									<div class="media" style="padding: 20px;background: #f5f5f5;">
 										<div class="media-left">
@@ -258,79 +253,74 @@
 								</div>
 							</div> -->
 							<div class="row" style="margin-top: 30px;"></div>
-						</div> 
+						</div>
 						<div role="tabpanel" class="tab-pane" id="settings">
-						<form action="/jmApp/jm/saveAction.action">
-							<div class="container"
-								style="width: 700px;padding-left: 10px;padding-top: 20px;padding-bottom: 30px;">
-								<textarea id="title" name="title" class="form-control" rows="7"></textarea>
-								<button type="submit" class="btn btn-info pull-right"
-									style="margin-top: 10px;width: 150px;">发表</button>
-							</div>
+							<form action="/jmApp/jm/saveAction.action" method="post">
+								<!-- 	<input id="commentsId" name="comments.id"> -->
+								<div class="container"
+									style="width: 700px;padding-left: 10px;padding-top: 20px;padding-bottom: 30px;">
+									<textarea id="title" name="title" class="form-control" rows="7"></textarea>
+									<button type="submit" class="btn btn-info pull-right"
+										style="margin-top: 10px;width: 150px;">发表</button>
+								</div>
 							</form>
-							<c:forEach items="${com}" var="comments">
-							<div
-								style="width:100%;height:1px;margin:0px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></div>
-							<table style="width: 100%">
-								<tr>
-									<td
-										style="background: #f5f5f5;width: 17%;text-align: center;vertical-align: top;">
-										<img src=${comments.user.picture} alt=""
-										style="height: 70px;margin-top: 10px;">
-										<h6 style="text-align: center;">
-											<font color="#f17a00">${comments.user.name }</font>
-										</h6>
-									</td>
-									<td>
-										<div style="min-height: 150px;">
-											<p style="margin-top: 15px;margin-left: 15px;">${comments.content}</p>
-										</div>
-										<div class="row">
-											<div class="col-md-10" style="text-align: right;">
-												<p>${comments.includeDate}</p>
+							<%-- <c:forEach items="${com}" var="comments"> --%>
+							<s:iterator value="#request.com" id="comments">
+								<div
+									style="width:100%;height:1px;margin:0px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></div>
+								<table style="width: 100%">
+									<tr>
+										<td
+											style="background: #f5f5f5;width: 17%;text-align: center;vertical-align: top;">
+											<img src=${comments.user.picture } alt=""
+											style="height: 70px;margin-top: 10px;">
+											<h6 style="text-align: center;">
+												<font color="#f17a00">${comments.user.name }</font>
+											</h6>
+										</td>
+										<td>
+											<div style="min-height: 150px;">
+												<p style="margin-top: 15px;margin-left: 15px;">${comments.content}</p>
 											</div>
-											<div class="col-md-2">
-												<div
-													style="background: #f5f5f5;min-height: 10px;margin-right: 10px;text-align: center;">
-													<a data-toggle="collapse" href="#collapseExample"
-														aria-expanded="false" aria-controls="collapseExample"><p>回复(2)</p></a>
+											<div class="row">
+												<div class="col-md-10" style="text-align: right;">
+													<p>${comments.includeDate}</p>
+												</div>
+												<div class="col-md-2">
+													<div
+														style="background: #f5f5f5;min-height: 10px;margin-right: 10px;text-align: center;">
+														<a data-toggle="collapse" href="#collapseExample"
+															aria-expanded="false" aria-controls="collapseExample"><p>回复(2)</p></a>
+													</div>
 												</div>
 											</div>
-										</div>
-										<div class="collapse" id="collapseExample">
-											<div class="well"
-												style="margin-left: 15px;margin-right: 10px;">
-												<div class="media">
-													<div class="media-left">
-														<a href="#"> <img class="media-object"
-															src="img\default.jpg" style="height: 50px;">
-														</a>
-													</div>
-													<div class="media-body">
-														<h5 class="media-heading">
-															<font color="#389BEA">1876811****</font>回复<font
-																color="#389BEA">Allen</font>:反正今晚是没机会了。。。
-														</h5>
-														<h5 class="text-muted pull-right">2015-10-30 09:43:28
-															回复</h5>
-													</div>
-												</div>
-												<div
-													style="width:100%;height:1px;margin:0px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></div>
-												<div class="media">
-													<div class="media-left">
-														<a href="#"> <img class="media-object" src="img\1.jpg"
-															style="height: 50px;">
-														</a>
-													</div>
-													<div class="media-body">
-														<h5 class="media-heading">
-															<font color="#389BEA">1876811****</font>回复<font
-																color="#389BEA">Allen</font>:反正今晚是没机会了。。。
-														</h5>
-														<h5 class="text-muted pull-right">2015-10-30 09:43:28
-															回复</h5>
-													</div>
+											<div class="collapse" id="collapseExample">
+
+												<div class="well"
+													style="margin-left: 15px;margin-right: 10px;">
+													<s:iterator value="#comments.replies" id="reply">
+														<div class="media">
+
+															<div class="media-left">
+																<a href="#"> <img class="media-object"
+																	src="img\default.jpg" style="height: 50px;">
+																</a>
+															</div>
+															<div class="media-body">
+																<h5 class="media-heading">
+																	<font color="#389BEA"><s:property
+																			value="#reply.user.name" /></font>回复<font color="#389BEA">${comments.user.name }</font>:
+																	<s:property value="#reply.content" />
+																</h5>
+																<h5 class="text-muted pull-right">
+																	<s:property value="#reply.includeDate" />
+																	回复
+																</h5>
+															</div>
+														</div>
+													</s:iterator>
+													<div
+														style="width:100%;height:1px;margin:0px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></div>
 												</div>
 												<div
 													style="width:100%;height:1px;margin:0px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></div>
@@ -342,22 +332,27 @@
 													</div>
 												</div>
 												<form action="/jmApp/jm/replyAction.action">
-												<div class="collapse" id="collapseExample2"
-													style="margin-top: 10px;">
-													<textarea id="title" name="title" class="form-control" rows="5"></textarea>
-													<div class="media">
-														<div class="media-body">
-															<button type="submit" class="btn btn-info pull-right">发表</button>
+													<div class="collapse" id="collapseExample2"
+														style="margin-top: 10px;">
+														<textarea id="title" name="title" class="form-control"
+															rows="5"></textarea>
+														<input id="commentsId" name="commentsId" type="hidden"
+															value="${comments.id}">
+														<div class="media">
+															<div class="media-body">
+																<button id="commentsId=${comments.id}" type="submit"
+																	class="btn btn-info pull-right">发表</button>
+															</div>
 														</div>
 													</div>
-												</div>
 												</form>
 
 											</div>
-									</td>
-								</tr>
-							</table>
-							</c:forEach>
+										</td>
+									</tr>
+								</table>
+								<%-- </c:forEach> --%>
+							</s:iterator>
 						</div>
 					</div>
 				</div>
@@ -368,7 +363,8 @@
 						<div class="line-blue"></div>
 						<div class="media" style="margin: 10px;margin-top: 20px;">
 							<div class="media-left">
-								<a href="//www.jzmys.net"> <img class="media-object img-circle"
+								<a href="//www.jzmys.net"> <img
+									class="media-object img-circle"
 									src="/jmApp/project/${project.deliver.logo}"
 									style="height: 60px;width: 60px;">
 								</a>
@@ -383,22 +379,24 @@
 						</div>
 					</div>
 					<c:forEach items="${project.projectSupports}" var="support">
-						<div style="background: #fff;margin-top: 20px;border-style:solid; border-width:1px; border-color:#D5D5D5">
+						<div
+							style="background: #fff;margin-top: 20px;border-style:solid; border-width:1px; border-color:#D5D5D5">
 							<p style="margin-top: 20px;margin-left: 10px;">
-								<span style="font-size: 20px;">￥${support.price}</span><span>/份</span><%-- <span
+								<span style="font-size: 20px;">￥${support.price}</span><span>/份</span>
+								<%-- <span
 									class="pull-right" style="margin-right: 10px;">已支持3份</span> --%>
 							</p>
 							<div class="line-blue"></div>
 							<div style="margin-left: 15px;margin-top: 15px;">
 								<span class="label label-info" style="font-size: 14px;">
-								    <c:choose>
-								       <c:when test="${support.limited==null }">
+									<c:choose>
+										<c:when test="${support.limited==null }">
 								                      无限制
 								       </c:when>
-								       <c:otherwise>
+										<c:otherwise>
 								                      限额${support.limited}元
 								       </c:otherwise>
-								    </c:choose>
+									</c:choose>
 								</span>
 							</div>
 							<p class="text-muted" style="margin-left: 15px;margin-top: 15px;">
@@ -464,77 +462,64 @@
 				</div>
 			</div>
 		</div>
-	    <jsp:include page="tailer.jsp"></jsp:include>
+		<jsp:include page="tailer.jsp"></jsp:include>
 	</div>
-    <script type="text/javascript">
-					$(function() {
-						var action;
-						$(".number-spinner button")
-								.mousedown(
-										function() {
-											btn = $(this);
-											input = btn.closest(
-													'.number-spinner').find(
-													'input');
-											btn.closest('.number-spinner')
-													.find('button').prop(
-															"disabled", false);
+	<script type="text/javascript">
+		$(function() {
+			var action;
+			$(".number-spinner button")
+					.mousedown(
+							function() {
+								btn = $(this);
+								input = btn.closest('.number-spinner').find(
+										'input');
+								btn.closest('.number-spinner').find('button')
+										.prop("disabled", false);
 
-											if (btn.attr('data-dir') == 'up') {
-												action = setInterval(
-														function() {
-															if (input
-																	.attr('max') == undefined
-																	|| parseInt(input
-																			.val()) < parseInt(input
-																			.attr('max'))) {
-																input
-																		.val(parseInt(input
-																				.val()) + 1);
-															} else {
-																btn
-																		.prop(
-																				"disabled",
-																				true);
-																clearInterval(action);
-															}
-														}, 50);
-											} else {
-												action = setInterval(
-														function() {
-															if (input
-																	.attr('min') == undefined
-																	|| parseInt(input
-																			.val()) > parseInt(input
-																			.attr('min'))) {
-																input
-																		.val(parseInt(input
-																				.val()) - 1);
-															} else {
-																btn
-																		.prop(
-																				"disabled",
-																				true);
-																clearInterval(action);
-															}
-														}, 50);
-											}
-										}).mouseup(function() {
-									clearInterval(action);
-								});
+								if (btn.attr('data-dir') == 'up') {
+									action = setInterval(
+											function() {
+												if (input.attr('max') == undefined
+														|| parseInt(input.val()) < parseInt(input
+																.attr('max'))) {
+													input.val(parseInt(input
+															.val()) + 1);
+												} else {
+													btn.prop("disabled", true);
+													clearInterval(action);
+												}
+											}, 50);
+								} else {
+									action = setInterval(
+											function() {
+												if (input.attr('min') == undefined
+														|| parseInt(input.val()) > parseInt(input
+																.attr('min'))) {
+													input.val(parseInt(input
+															.val()) - 1);
+												} else {
+													btn.prop("disabled", true);
+													clearInterval(action);
+												}
+											}, 50);
+								}
+							}).mouseup(function() {
+						clearInterval(action);
 					});
-				</script>
+		});
+	</script>
 
-                <script type="text/javascript">
-					$("#home").load("/jmApp/project/${project.homepage}",
-							function(response, status, xhr) {
-								$('#home').html(response);
-							});
+	<script type="text/javascript">
+		$("#home").load("/jmApp/project/${project.homepage}",
+				function(response, status, xhr) {
+					$('#home').html(response);
+				});
 
-					$("#profile").load("/jmApp/project/${project.safepage}",
-							function(response, status, xhr) {
-								$('#profile').html(response);
-							});
-				</script></body>
-				
+		$("#profile").load("/jmApp/project/${project.safepage}",
+				function(response, status, xhr) {
+					$('#profile').html(response);
+				});
+	</script>
+</body>
+
 </html>

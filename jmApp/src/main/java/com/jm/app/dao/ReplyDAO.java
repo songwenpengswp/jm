@@ -13,6 +13,7 @@ import static org.hibernate.criterion.Example.create;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jm.app.bean.Reply;
@@ -127,10 +128,10 @@ public class ReplyDAO {
 			throw re;
 		}
 	}
-	public List findByComId(int comId ) {   
- 		String hql = "from Reply r where r.comments.id=?";
+	public List findByComId(int commentsId ) {   
+ 		String hql = "from Reply r  where r.comments.id=?";
  		Query query = getCurrentSession().createQuery(hql);
- 		query.setInteger(0, comId);		
+ 		query.setInteger(0, commentsId);		
  		return query.list();
  	}
 
@@ -168,8 +169,15 @@ public class ReplyDAO {
 			throw re;
 		}
 	}
+	
 
 	public static ReplyDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (ReplyDAO) ctx.getBean("ReplyDAO");
+	}
+	public static void main(String[] args) {
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ReplyDAO dao= getFromApplicationContext(ac);
+		System.out.println(dao.findByComId(1));
+		
 	}
 }

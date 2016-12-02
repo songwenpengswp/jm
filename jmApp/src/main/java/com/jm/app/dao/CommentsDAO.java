@@ -182,9 +182,9 @@ public class CommentsDAO {
 	public static void main(String[] args) {
 		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		CommentsDAO dao= getFromApplicationContext(ac);
-		System.out.println(dao.findAll());
-		
-		System.out.println(dao.findByProId(1));
+		//System.out.println(dao.findAll());
+		System.out.println(dao.findById(1));
+		//System.out.println(dao.findByProId(1));
 		
 	}
 }

@@ -16,7 +16,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ReplyAction extends ActionSupport {
-	// private DetailService detailService;
+	
 		private ReplyService replyService;
 
 		private String title;
@@ -33,23 +33,22 @@ public class ReplyAction extends ActionSupport {
 			Project project=new Project();
 			project.setId(proId);
 			
-			Comments comments=new Comments();
-			comments.setId(commentsId);
+			
 			
 			User user=(User)session.getAttribute("user");
 			if(user==null){
 				return ERROR;
 			}
 			
-
+			Comments comments=new Comments();
+			comments.setId(commentsId);
 			Reply reply = new Reply();
 			String titl = new String(title.getBytes("ISO-8859-1"),"UTF-8");
 			reply.setContent(titl);
 			reply.setIncludeDate(new Date());
 			reply.setUser(user);
-			//reply.setComments(comments);
-			replyService.SaveReply(reply);
-
+			reply.setComments(comments);
+			replyService.Save(reply);
 			return super.execute();
 		}
 

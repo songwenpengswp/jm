@@ -16,4 +16,10 @@ public interface CommentsService {
 	 * @param comments
 	 */
 	void SaveComments(Comments comments);
+	/**
+	 * 获取评论表Id
+	 * @param commentsId
+	 * @return
+	 */
+	Comments getComments (int commentsId);
 }

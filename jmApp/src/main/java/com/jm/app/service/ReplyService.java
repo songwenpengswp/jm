@@ -12,10 +12,12 @@ public interface ReplyService {
 	 * @param proId
 	 * @return
 	 */
-	List<Reply> getByReply(int commentsId);
+	List<Reply> getByReply(int comment);
 	/**
 	 * 添加评论
 	 * @param reply
 	 */
-	void SaveReply(Reply reply);
+	void Save(Reply reply);
+	
+	
 }
