@@ -13,9 +13,12 @@ import static org.hibernate.criterion.Example.create;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.jm.app.bean.Deliver;
+import com.jm.app.bean.User;
+
 
 /**
  * A data access object (DAO) providing persistence and search support for
@@ -151,7 +154,7 @@ public class DeliverDAO {
 		return findByProperty(LOGO, logo);
 	}
 
-	public List findAll() {
+	public List<Deliver> findAll() {
 		log.debug("finding all Deliver instances");
 		try {
 			String queryString = "from Deliver";
@@ -198,8 +201,25 @@ public class DeliverDAO {
 			throw re;
 		}
 	}
-
+	
+	public Deliver findDeliverId(int id){
+		String hql="select deliver  from Deliver deliver where deliver.id=?";
+		Query query=getCurrentSession().createQuery(hql);
+		query.setInteger(0, id);
+		
+		return  (Deliver) query.uniqueResult();
+		
+	}
+	
 	public static DeliverDAO getFromApplicationContext(ApplicationContext ctx) {
 		return (DeliverDAO) ctx.getBean("DeliverDAO");
+	}
+	
+	public static void main(String[] args) {
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		DeliverDAO dao= getFromApplicationContext(ac);
+		
+		System.out.println(dao.findAll());
+		
 	}
 }

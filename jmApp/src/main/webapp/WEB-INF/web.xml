@@ -9,7 +9,7 @@
     <param-value>classpath:applicationContext.xml</param-value>
   </context-param>
   <!-- 配置Spring的用于解决懒加载问题的过滤器 -->
-  <filter>
+  <filter> 
     <filter-name>OpenSessionInViewFilter</filter-name>
     <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
   </filter>
@@ -33,6 +33,16 @@
     <servlet-name>GetCodeServlet</servlet-name>
     <url-pattern>/servlet/GetCodeServlet</url-pattern>
   </servlet-mapping>
+ <!-- 上传压缩文件 --> 
+  <servlet>
+		<servlet-name>upload</servlet-name>
+		<servlet-class>com.jm.app.servlet.UploadFile</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>upload</servlet-name>
+		<url-pattern>/upload</url-pattern>
+	</servlet-mapping>
+	
   <filter>
     <filter-name>struts2</filter-name>
     <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>

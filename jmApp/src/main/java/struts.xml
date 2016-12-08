@@ -101,5 +101,11 @@
 			class="AdminProjectAction">
 			<result>/admin_project.jsp?type=${type}&amp;status=${status}</result>
 		</action>
+	   <action name="AdminAction" class="AdminAction">
+	      <result>/admin.jsp</result>
+        </action>
+		<action name="UpdatePro" class="AdminAction"  method="updatePro">
+	      <result type="redirectAction"  name="success">AdminAction?proId=${proId}</result>
+        </action>
     </package>
 </struts>

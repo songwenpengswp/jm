@@ -171,7 +171,9 @@
 					<!-- Tab panes -->
 					<div class="tab-content">
 						<div role="tabpanel" class="tab-pane active" id="home"
-							style="margin: 20px;"></div>
+							style="margin: 20px;">
+							
+							</div>
 						<div role="tabpanel" class="tab-pane" id="profile"
 							style="margin: 20px;"></div>
 						<div role="tabpanel" class="tab-pane" id="messages">
@@ -199,64 +201,12 @@
 									</div>
 								</c:forEach>
 
-								<!-- <div class="col-md-6" style="padding-right: 35px;">
-									<div class="media" style="padding: 20px;background: #f5f5f5;">
-										<div class="media-left">
-											<img class="media-object img-circle" src="/jmApp/img/0.jpg"
-												style="height: 100px">
-										</div>
-										<div class="media-body">
-											<h3 class="media-heading" style="padding-left: 20px;">
-												<b>Damon2013</b>
-											</h3>
-											<h5 style="padding-top: 10px;padding-left: 20px;">
-												投资金额：<font color="#f17a00">￥50,000</font>
-											</h5>
-											<h5 style="padding-left: 20px;">投资时间：2016-05-26</h5>
-										</div>
-									</div>
-								</div> -->
-							</div>
-							<!-- <div class="row" style="padding-top: 20px;">
-								<div class="col-md-6" style="padding-left: 35px;">
-									<div class="media" style="padding: 20px;background: #f5f5f5;">
-										<div class="media-left">
-											<img class="media-object img-circle" src="/jmApp/img/1.jpg">
-										</div>
-										<div class="media-body">
-											<h3 class="media-heading" style="padding-left: 20px;">
-												<b>燕燕</b>
-											</h3>
-											<h5 style="padding-top: 10px;padding-left: 20px;">
-												投资金额：<font color="#f17a00">￥50,000</font>
-											</h5>
-											<h5 style="padding-left: 20px;">投资时间：2016-05-26</h5>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6" style="padding-right: 35px;">
-									<div class="media" style="padding: 20px;background: #f5f5f5;">
-										<div class="media-left">
-											<img class="media-object img-circle" src="/jmApp/img/default.jpg"
-												style="height: 100px">
-										</div>
-										<div class="media-body">
-											<h3 class="media-heading" style="padding-left: 20px;">
-												<b>皮皮和妞妞</b>
-											</h3>
-											<h5 style="padding-top: 10px;padding-left: 20px;">
-												投资金额：<font color="#f17a00">￥50,000</font>
-											</h5>
-											<h5 style="padding-left: 20px;">投资时间：2016-05-26</h5>
-										</div>
-									</div>
-								</div>
-							</div> -->
+					
 							<div class="row" style="margin-top: 30px;"></div>
 						</div>
 						<div role="tabpanel" class="tab-pane" id="settings">
 							<form action="/jmApp/jm/saveAction.action" method="post">
-								<!-- 	<input id="commentsId" name="comments.id"> -->
+								
 								<div class="container"
 									style="width: 700px;padding-left: 10px;padding-top: 20px;padding-bottom: 30px;">
 									<textarea id="title" name="title" class="form-control" rows="7"></textarea>
@@ -264,7 +214,7 @@
 										style="margin-top: 10px;width: 150px;">发表</button>
 								</div>
 							</form>
-							<%-- <c:forEach items="${com}" var="comments"> --%>
+							
 							<s:iterator value="#request.com" id="comments">
 								<div
 									style="width:100%;height:1px;margin:0px auto;padding:0px;background-color:#D5D5D5;overflow:hidden;"></div>

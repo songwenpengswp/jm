@@ -107,9 +107,7 @@
 		<property name="commentsService">
 			<ref bean="CommentsService" />
 		</property>
-		<property name="replyService">
-			<ref bean="ReplyService" />
-		</property>
+
 	</bean>
 	<bean id="RegisterAction" class="com.jm.app.action.RegisterAction"
 		scope="prototype">
@@ -152,6 +150,9 @@
 	<bean id="ProjectService" class="com.jm.app.service.ProjectServiceImpl">
 		<property name="proDao">
 			<ref bean="ProjectDAO" />
+		</property>
+		<property name="delDao">
+			<ref bean="DeliverDAO" />
 		</property>
 	</bean>
 	<bean id="DetailService" class="com.jm.app.service.DetailServiceImpl">
@@ -256,6 +257,14 @@
 			<ref bean="ProjectService" />
 		</property>
 	</bean>
+
+<bean id="AdminAction" class="com.jm.app.action.AdminAction"
+		scope="prototype">
+		<property name="proService">
+			<ref bean="ProjectService" />
+		</property>
+	</bean>
+
 	<bean id="ReplyAction" class="com.jm.app.action.ReplyAction"
 		scope="prototype">
 		<property name="replyService">

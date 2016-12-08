@@ -108,7 +108,7 @@
 				<li><a href="/jmApp/jm/AdminMainAction.action"
 					style="font-size: 18px">首页</a></li>
 				<li><a href="/jmApp/jm/AdminProjectAction.action" style="font-size: 18px">影视众筹</a></li>
-				<li><a href="/jmApp/admin.jsp"
+				<li><a href="/jmApp/jm/AdminAction.action"
 					style="font-size: 18px">项目管理</a></li>
 				<!-- <li><a href="projectissue.html" style="font-size: 18px">发行</a></li> -->
 				<li><a href="#" style="font-size: 18px">统计分析</a></li>

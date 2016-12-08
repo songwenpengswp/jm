@@ -491,6 +491,7 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.9</version>
 		</dependency>
+		<!--email-->
 		<dependency>
          <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
@@ -506,6 +507,27 @@
     <artifactId>commons-email</artifactId>
     <version>1.3.2</version>
 </dependency>
+<dependency>
+    <groupId>commons-io</groupId>
+    <artifactId>commons-io</artifactId>
+    <version>1.4</version>
+</dependency>
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.2.2</version>
+</dependency>
+<dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>1.2.1</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.ant</groupId>
+    <artifactId>ant</artifactId>
+    <version>1.9.4</version>
+</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
@@ -518,6 +540,7 @@
 				</configuration>
 			</plugin>
 			<plugin>
+			
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>

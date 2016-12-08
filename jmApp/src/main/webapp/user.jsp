@@ -765,22 +765,22 @@
 													</h5>
 													
 												</div>
-												<%-- <c:choose>
-													     <c:when test="${user.email==null&&user.getEmail().equals()==null}"> --%>
+												<c:choose>
+													     <c:when test="${user.email==null&&user.getEmail().equals()==null}"> 
 													       <h5 style="margin-top: 20px;">
 														<input name="mail" id="mail" type="text" class="form-control"
 															style="width: 150px;" placeholder="请输入要绑定的邮箱">
 													</h5>
 													<a href="#"><button type="submit">发送邮箱验证邮件</button></a>
-													     <%-- </c:when> --%>
-													    <%--   <c:otherwise>
+													      </c:when> 
+													      <c:otherwise>
 													       <h5 style="margin-top: 20px;">
 														<text name="mail" id="mail"  class="form-control"
 															style="width: 150px;" >${user.email}</text>
 													</h5>
 													<p>已绑定邮箱</p>
-													     </c:otherwise> --%>
-													 <%--  </c:choose>  --%>
+													     </c:otherwise> 
+													  </c:choose> 
 												<p class="text-muted" style="margin-top: 30px;">绑定邮箱是您获得虚拟回报、找回密码的重要途径，请尽快绑定</p>
 											</div></form>
 											<div class="media col-md-4" style="margin: 30px;">
